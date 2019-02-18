@@ -55,7 +55,7 @@ function deploy() {
     }));
 }
 
-exports.deploy = gulp.parallel([
+exports.deploy = gulp.series([
   html,
   css,
   deploy,
