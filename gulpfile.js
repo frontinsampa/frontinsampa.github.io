@@ -50,7 +50,9 @@ function watch() {
 
 function deploy() {
   return gulp.src('./public/**/*')
-    .pipe(ghPages());
+    .pipe(ghPages({
+      branch: 'master',
+    }));
 }
 
 exports.deploy = gulp.parallel([
