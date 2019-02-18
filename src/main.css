@@ -1,0 +1,179 @@
+@import 'reset-css';
+@import 'normalize.css';
+
+:root {
+  --font-highlight: responsive 20px 30px;
+  --font-large: responsive 16px 20px;
+  --font-medium: 16px;
+  --font-small: 14px;
+
+  --font-family: "Roboto Mono", monospace;
+
+  --font-normal: 400;
+  --font-strong: 500;
+
+  --margin: 15px;
+  --margin-highlight: 80px;
+
+  --color-light: #ffffff;
+}
+
+html {
+  color: var(--color-light);
+  background-color: #000000;
+  text-align: center;
+  font-family: var(--font-family);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+h1,
+h2 {
+  font-weight: 500;
+}
+
+h1,
+h2,
+p,
+li {
+  margin-bottom: var(--margin);
+}
+
+h1,
+h2,
+p,
+li,
+small {
+  line-height: 1.5;
+}
+
+b,
+strong {
+  font-weight: 500;
+}
+
+svg {
+  fill: currentColor;
+}
+
+a {
+  color: inherit;
+}
+
+h1 svg {
+  width: 100%;
+  height: 150px;
+  margin-bottom: var(--margin-highlight);
+}
+
+h2 {
+  font-size: var(--font-highlight);
+}
+
+h2 small {
+  font-weight: var(--font-normal);
+}
+
+@media (min-width: 768px) {
+  h2 small {
+    display: block;
+    font-size: 50%;
+  }
+}
+
+body {
+  padding: 20px 10vw;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    padding: 40px 20vw;
+  }
+}
+
+.font-large {
+  font-size: var(--font-large);
+}
+
+.font-medium {
+  font-size: var(--font-medium);
+}
+
+.feature-text {
+  margin: 40px 0;
+}
+
+.hide-text {
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  overflow: hidden;
+}
+
+.tickets-button {
+  display: inline-flex;
+  font-size: 1rem;
+  margin: var(--margin-highlight) 0;
+  text-decoration: none;
+  color: inherit;
+  width: 200px;
+  height: 50px;
+  padding: 0 10px;
+  border-radius: 3px;
+  border: 1px solid var(--color-light);
+  position: relative;
+  z-index: 1;
+}
+
+.tickets-button:hover,
+.tickets-button:focus {
+  transform: translateY(-5px);
+}
+
+.tickets-button span {
+  display: inherit;
+  align-items: center;
+  justify-content: center;
+  height: inherit;
+  width: inherit;
+  padding: 0 10px;
+  border-radius: 3px;
+  border: 1px solid var(--color-light);
+  position: absolute;
+  z-index: 2;
+  background-color: #000000;
+  top: -10px;
+  left: -9px;
+}
+
+footer a {
+  transition: opacity .1s ease;
+}
+
+footer a:hover,
+footer a:focus {
+  opacity: 0.5;
+}
+
+footer ul {
+  display: inline-flex;
+}
+
+footer li {
+  margin: var(--margin);
+}
+
+footer li svg {
+  width: 20px;
+  height: 20px;
+}
+
+footer small {
+  font-size: var(--font-small);
+}
