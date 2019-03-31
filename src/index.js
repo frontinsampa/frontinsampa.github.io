@@ -1,7 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
 
+import Scenes from './scenes';
+
 render(
-  <div>hello world</div>,
+  <Scenes />,
   document.getElementById('root'),
 );
