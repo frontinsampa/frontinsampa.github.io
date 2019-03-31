@@ -1,25 +1,32 @@
 {
-  "name": "front-in-sampa",
+  "name": "front-in-sampa.github.io",
   "version": "1.0.0",
-  "description": "",
+  "description": "Front In Sampa 2019.",
   "scripts": {
-    "start": "gulp",
-    "deploy": "gulp deploy"
+    "start": "NODE_ENV=development webpack-dev-server"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Keit Oliveira <keitoliveira@outlook.com>",
+  "license": "MIT",
   "devDependencies": {
-    "browser-sync": "^2.26.3",
-    "gulp": "^4.0.0",
-    "gulp-gh-pages": "^0.5.4",
-    "gulp-postcss": "^8.0.0",
-    "postcss-css-variables": "^0.11.0",
+    "@babel/core": "^7.4.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
+    "babel-preset-airbnb": "^3.2.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
     "postcss-import": "^12.0.1",
     "postcss-pxtorem": "^4.0.1",
-    "postcss-responsive-type": "^1.0.0"
+    "postcss-responsive-type": "^1.0.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
   },
   "dependencies": {
-    "normalize.css": "^8.0.1",
-    "reset-css": "^4.0.1"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   }
 }
