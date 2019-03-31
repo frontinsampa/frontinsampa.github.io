@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Base from './Base';
+import Base from '../commons/Base';
 
 import { withTheme } from '../styles';
 
