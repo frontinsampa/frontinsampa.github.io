@@ -1,6 +1,7 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import Countdown from 'react-countdown-now';
 
 import Section from '../../../commons/Section';
 import Ticket from '../../../commons/Ticket';
@@ -9,16 +10,23 @@ import { withStyles } from '../../../styles';
 
 import styles from './styles';
 
+const DATE = 'Sat, 13 Jul 2019';
+
 const Hero = () => (
   <Section>
     <Grid component="section" container direction="row" justify="center">
       <Grid item xs="auto">
-        <Typography variant="h2">Se prepare para o <big>Front In Sampa 2019</big></Typography>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam officia debitis maxime nam dignissimos perspiciatis aspernatur expedita.</p>
+        <Typography component="p" variant="h1">
+          <small>Se prepare para o</small> Front In Sampa 2019
+        </Typography>
 
-        <div>Countdown</div>
+        <Typography component="p" variant="h4">Lorem ipsum dolor sit amet consectetur adipisicing elit.</Typography>
 
-        <Ticket />
+        <Typography component="p" variant="h1">
+          <Countdown date={new Date(DATE)} zeroPadTime={2} daysInHours />
+        </Typography>
+
+        <Ticket>Faça sua inscrição</Ticket>
       </Grid>
     </Grid>
   </Section>

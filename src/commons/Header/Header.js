@@ -13,38 +13,28 @@ import styles from './styles';
 
 const MENU = [
   {
-    label: 'o evento',
-    description: '',
+    label: 'O evento',
+    a11y: 'Ir para a seção sobre o evento.',
     src: '#',
   },
   {
-    label: 'palestrantes',
-    description: '',
+    label: 'Palestrantes',
+    a11y: 'Ir para a seção sobre de palestrantes.',
     src: '#',
   },
   {
-    label: 'apresentador',
-    description: '',
+    label: 'Apresentador',
+    a11y: 'Ir para a seção sobre o apresentador.',
     src: '#',
   },
   {
-    label: 'local',
-    description: '',
+    label: 'Local',
+    a11y: 'Ir para a seção sobre o local.',
     src: '#',
   },
   {
-    label: 'patrocinio',
-    description: '',
-    src: '#',
-  },
-  {
-    label: 'apoio',
-    description: '',
-    src: '#',
-  },
-  {
-    label: 'contato',
-    description: '',
+    label: 'Contato',
+    a11y: 'Ir para a seção de contato.',
     src: '#',
   },
 ];
@@ -52,9 +42,9 @@ const MENU = [
 const Header = () => (
   <Grid component="header" container>
     <Grid item xs="auto">
-      <a href="/">
-        <img src="https://via.placeholder.com/150x50&text=LOGO" alt="" />
-      </a>
+      <Link href="/">
+        <img src="https://via.placeholder.com/150x50&text=LOGO" alt="Front In Sampa 2019" aria-label="Logo do evento" />
+      </Link>
     </Grid>
 
     <Grid item xs>
@@ -63,7 +53,7 @@ const Header = () => (
           MENU.map(item => (
             <Grid component="li" item xs key={uuid()}>
               <Typography component="span">
-                <Link href={item.src} aria-label={item.description} color="inherit">
+                <Link href={item.src} aria-label={item.a11y} color="inherit">
                   { item.label }
                 </Link>
               </Typography>
@@ -74,7 +64,7 @@ const Header = () => (
     </Grid>
 
     <Grid item xs="auto">
-      <Ticket />
+      <Ticket>Inscrever-se</Ticket>
     </Grid>
   </Grid>
 );

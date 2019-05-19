@@ -1,10 +1,41 @@
+import uuid from 'uuid/v4';
+
 import React from 'react';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
 
 import Section from '../../../commons/Section';
 
+const PARTNERS = [
+  {
+    name: 'Lorem Ipsum',
+    logo: 'https://via.placeholder.com/150x100&text=PARTNERS',
+  },
+  {
+    name: 'Lorem Ipsum',
+    logo: 'https://via.placeholder.com/150x100&text=PARTNERS',
+  },
+  {
+    name: 'Lorem Ipsum',
+    logo: 'https://via.placeholder.com/150x100&text=PARTNERS',
+  },
+  {
+    name: 'Lorem Ipsum',
+    logo: 'https://via.placeholder.com/150x100&text=PARTNERS',
+  },
+];
+
 const Partners = () => (
-  <Section title="Apoio">
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui animi id nesciunt molestias eos voluptas, laudantium sunt officia quia expedita porro totam doloribus possimus nihil aperiam impedit culpa veniam corporis?
+  <Section title="Apoiadores">
+    <GridList cellHeight={150} cols={4}>
+      {
+        PARTNERS.map(({ name, logo }) => (
+          <GridListTile key={uuid()}>
+            <img src={logo} alt={name} />
+          </GridListTile>
+        ))
+      }
+    </GridList>
   </Section>
 );
 

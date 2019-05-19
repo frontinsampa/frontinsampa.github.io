@@ -15,8 +15,8 @@ const Home = () => (
     <Speakers />
     <Host />
     <Place />
-    <Partners />
     <Sponsors />
+    <Partners />
   </div>
 );
 

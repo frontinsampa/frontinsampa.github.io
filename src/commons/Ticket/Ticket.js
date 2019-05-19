@@ -6,9 +6,11 @@ import { withStyles } from '../../styles';
 
 import styles from './styles';
 
-const Ticket = ({ classes }) => (
+const Ticket = ({ classes, children }) => (
   <Typography component="a" className={classes.ticket} href="/" aria-label="Ir para a página de inscrição no Sympla." target="_blank">
-    <span className={classes.ticketInner}>Inscreva-se</span>
+    <span className={classes.ticketInner}>
+      { children }
+    </span>
   </Typography>
 );
 

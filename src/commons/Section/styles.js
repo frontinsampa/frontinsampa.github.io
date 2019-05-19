@@ -1,7 +1,6 @@
 export default () => ({
   section: {
     position: 'relative',
-    height: 500,
   },
   sectionTitle: {
     fontSize: 50,
