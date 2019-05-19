@@ -8,7 +8,7 @@ import { withStyles } from '../../styles';
 
 import styles from './styles';
 
-const Section = ({ component = 'div', classes, title, children }) => {
+const Section = ({ component = 'section', classes, title, children }) => {
   const $title = useRef();
 
   return (

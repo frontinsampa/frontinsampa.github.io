@@ -14,7 +14,7 @@ const DATE = 'Sat, 13 Jul 2019';
 
 const Hero = () => (
   <Section>
-    <Grid component="section" container direction="row" justify="center">
+    <Grid container direction="row" justify="center">
       <Grid item xs="auto">
         <Typography component="p" variant="h1">
           <small>Se prepare para o</small> Front In Sampa 2019
@@ -26,7 +26,7 @@ const Hero = () => (
           <Countdown date={new Date(DATE)} zeroPadTime={2} daysInHours />
         </Typography>
 
-        <Ticket>Faça sua inscrição</Ticket>
+        <Ticket width={210}>Faça sua inscrição</Ticket>
       </Grid>
     </Grid>
   </Section>

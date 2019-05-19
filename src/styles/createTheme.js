@@ -1,5 +1,5 @@
 import merge from 'lodash/merge';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
 /**
  * @param {object} props
@@ -9,7 +9,7 @@ const createTheme = (...props) => {
     overrides: {},
   }, ...props);
 
-  return createMuiTheme(theme);
+  return responsiveFontSizes(createMuiTheme(theme));
 };
 
 export default createTheme;

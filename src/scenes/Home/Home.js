@@ -7,9 +7,10 @@ import Host from './Host';
 import Place from './Place';
 import Partners from './Partners';
 import Sponsors from './Sponsors';
+import Contact from './Contact';
 
 const Home = () => (
-  <div>
+  <React.Fragment>
     <Hero />
     <About />
     <Speakers />
@@ -17,7 +18,8 @@ const Home = () => (
     <Place />
     <Sponsors />
     <Partners />
-  </div>
+    <Contact />
+  </React.Fragment>
 );
 
 export default Home;

@@ -5,9 +5,9 @@ import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 
-import Section from '../Section';
+import Section from '../../../commons/Section';
 
-import { withStyles } from '../../styles';
+import { withStyles } from '../../../styles';
 
 import styles from './styles';
 
@@ -38,7 +38,7 @@ const SOCIAL_MEDIA = [
   },
 ];
 
-const Footer = () => (
+const Contact = () => (
   <Section component="footer" title="Contato">
     <Grid container alignItems="center">
       {
@@ -58,4 +58,4 @@ const Footer = () => (
   </Section>
 );
 
-export default withStyles(styles)(Footer);
+export default withStyles(styles)(Contact);
