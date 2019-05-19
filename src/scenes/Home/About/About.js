@@ -1,11 +1,14 @@
 import React from 'react';
+import CountUp from 'react-countup';
+
+import { withStyles } from '../../../styles';
 
 import Section from '../../../commons/Section';
 
-const About = () => (
-  <Section>
-    ABOUT
-  </Section>
+import styles from './styles';
+
+const About = ({ classes }) => (
+  <Section />
 );
 
-export default About;
+export default withStyles(styles)(About);

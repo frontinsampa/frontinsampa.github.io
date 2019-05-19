@@ -1,45 +1,27 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import Grid from '@material-ui/core/Grid';
 
 import { withStyles } from '../../styles';
 
-import {
-  COLOR_LIVE,
-  COLOR_TAR,
-  COLOR_ENERGY,
-  COLOR_SUNRISE,
-  COLOR_SUNSET,
-  COLOR_NATURE,
-  COLOR_OCEAN,
-} from '../../styles/themes/globals';
-
 import styles from './styles';
 
-// eslint-disable-next-line
-const Section = ({ classes, background, children }) => {
+const Section = ({ classes, title, children }) => {
+  const $title = useRef();
+
   return (
-    <section className={classes.section && background}>
-      { children }
-    </section>
+    <Grid container className={classes.section} justify="center">
+      <Grid item xs={10}>
+        { title && (
+          <div className={classes.sectionType}>
+            <h2 className={classes.sectionTypeTitle} ref={$title} />
+          </div>
+        ) }
+
+        { children }
+      </Grid>
+    </Grid>
   );
-};
-
-Section.propTypes = {
-  children: PropTypes.element.isRequired,
-  classes: PropTypes.shape({}).isRequired,
-  background: PropTypes.oneOfType([
-    COLOR_LIVE,
-    COLOR_TAR,
-    COLOR_ENERGY,
-    COLOR_SUNRISE,
-    COLOR_SUNSET,
-    COLOR_NATURE,
-    COLOR_OCEAN,
-  ]),
-};
-
-Section.defaultProps = {
-  background: COLOR_TAR,
 };
 
 export default withStyles(styles)(Section);

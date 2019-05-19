@@ -1,10 +1,8 @@
 import React from 'react';
-import { ThemeProvider } from 'react-jss';
-import deepmerge from 'deepmerge';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
 import createTheme from './createTheme';
 
-import globals from './themes/globals';
 import standard from './themes/collections/standard';
 
 const themes = {
@@ -15,12 +13,14 @@ const themes = {
  * @param {string} name
  */
 const provideTheme = (name) => {
-  const theme = createTheme(deepmerge(globals, themes[name]));
+  const theme = createTheme(themes[name]);
+
+  console.log(theme);
 
   return Component => ({ ...props }) => (
-    <ThemeProvider theme={theme}>
+    <MuiThemeProvider theme={theme}>
       <Component {...props} />
-    </ThemeProvider>
+    </MuiThemeProvider>
   );
 };
 

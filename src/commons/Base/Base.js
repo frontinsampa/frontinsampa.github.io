@@ -1,26 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 import { withStyles } from '../../styles';
 
 import Header from '../Header';
 import Footer from '../Footer';
 
-import styles from './styles';
+import styles, { MAX_WIDTH } from './styles';
 
 const Base = ({ ...props }) => {
   const { classes, children } = props;
 
   return (
-    <div>
-      <Header />
+    <Container maxWidth={MAX_WIDTH}>
+      <CssBaseline />
 
-      <div className={classes.base}>
-        { children }
-      </div>
+      <Grid className={classes.base} container spacing={10}>
+        <Grid item xs={12}>
+          <Header />
+        </Grid>
 
-      <Footer />
-    </div>
+        <Grid component="main" item xs={12}>
+          { children }
+        </Grid>
+
+        <Grid item xs={12}>
+          <Footer />
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
 

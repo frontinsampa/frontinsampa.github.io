@@ -1,1 +1,1 @@
-export { default } from 'react-jss';
+export { default } from '@material-ui/core/styles/withStyles';

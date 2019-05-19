@@ -1,13 +1,7 @@
-import resetCss from 'reset-jss';
-import normalizeCss from 'normalize-jss';
+/**
+ * Define property `max-width` for Container.
+ * @see {@link https://next.material-ui.com/api/container/#props}
+ */
+export const MAX_WIDTH = 'lg';
 
-const styles = ({ palette }) => ({
-  ...resetCss,
-  ...normalizeCss,
-  base: {
-    backgroundColor: palette.tar,
-    color: palette.live,
-  },
-});
-
-export default styles;
+export default () => ({});

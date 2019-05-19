@@ -1,18 +1,15 @@
-import deepmerge from 'deepmerge';
-
-import themeSchema, { THEME_OVERRIDES_SCHEMA } from './themeSchema';
+import merge from 'lodash/merge';
+import { createMuiTheme } from '@material-ui/core/styles';
 
 /**
  * @param {object} props
  */
-const createTheme = (props) => {
-  const theme = deepmerge({
+const createTheme = (...props) => {
+  const theme = merge({
     overrides: {},
-  }, props);
+  }, ...props);
 
-  theme.overrides = themeSchema.parse(theme.overrides, THEME_OVERRIDES_SCHEMA);
-
-  return theme;
+  return createMuiTheme(theme);
 };
 
 export default createTheme;

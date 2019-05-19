@@ -1,3 +1,7 @@
-const styles = () => ({});
-
-export default styles;
+export default ({ palette }) => ({
+  aboutHistory: {
+    listStyle: 'none',
+    paddingLeft: 0,
+    fontSize: 40,
+  },
+});

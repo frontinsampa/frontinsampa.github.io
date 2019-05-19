@@ -1,26 +1,22 @@
 import React from 'react';
 
-import Intro from './Intro';
+import Hero from './Hero';
 import About from './About';
-import Place from './Place';
-import Host from './Host';
 import Speakers from './Speakers';
-import Sponsors from './Sponsors';
+import Host from './Host';
+import Place from './Place';
 import Partners from './Partners';
-import News from './News';
+import Sponsors from './Sponsors';
 
 const Home = () => (
   <div>
-    <main>
-      <Intro />
-      <About />
-      <Place />
-      <Host />
-      <Speakers />
-      <Sponsors />
-      <Partners />
-      <News />
-    </main>
+    <Hero />
+    <About />
+    <Speakers />
+    <Host />
+    <Place />
+    <Partners />
+    <Sponsors />
   </div>
 );
 
