@@ -12,14 +12,12 @@ const Section = ({ component = 'section', classes, title, children }) => {
   const $title = useRef();
 
   return (
-    <Grid component={component} container className={classes.section} justify="center">
+    <Grid component={component} container className={classes.section} justify="center" alignItems="center">
       <Grid item xs={10}>
         { title && (
-          <div className={classes.sectionType}>
-            <Typography component="h2" className={classes.sectionTypeTitle} variant="h5" ref={$title}>
-              { title }
-            </Typography>
-          </div>
+          <Typography component="h2" className={classes.sectionTitle} variant="h5" ref={$title}>
+            { title }
+          </Typography>
         ) }
 
         { children }

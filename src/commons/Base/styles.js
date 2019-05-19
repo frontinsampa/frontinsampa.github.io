@@ -4,4 +4,4 @@
  */
 export const MAX_WIDTH = 'lg';
 
-export default () => ({});
+export default () => {};

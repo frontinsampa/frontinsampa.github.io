@@ -1,9 +1,5 @@
 export default () => ({
-  introCall: {
+  hero: {
     textAlign: 'center',
-
-    '& > span:first-of-type': {
-      display: 'block',
-    },
   },
 });

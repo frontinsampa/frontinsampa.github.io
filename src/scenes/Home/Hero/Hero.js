@@ -10,17 +10,22 @@ import { withStyles } from '../../../styles';
 
 import styles from './styles';
 
+/**
+ * @todo Move `DATE` to configuration file.
+ */
 const DATE = 'Sat, 13 Jul 2019';
 
-const Hero = () => (
+const Hero = ({ classes }) => (
   <Section>
-    <Grid container direction="row" justify="center">
+    <Grid className={classes.hero} container direction="row" justify="center">
       <Grid item xs="auto">
         <Typography component="p" variant="h1">
           <small>Se prepare para o</small> Front In Sampa 2019
         </Typography>
 
-        <Typography component="p" variant="h4">Lorem ipsum dolor sit amet consectetur adipisicing elit.</Typography>
+        <Typography component="p" variant="h5">
+          13 de Julho | Centro de Convenções Rebouças, São Paulo
+        </Typography>
 
         <Typography component="p" variant="h1">
           <Countdown date={new Date(DATE)} zeroPadTime={2} daysInHours />

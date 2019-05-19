@@ -42,7 +42,7 @@ const MENU = [
 ];
 
 const Header = ({ classes }) => (
-  <AppBar className={classes.header} position="sticky">
+  <AppBar className={classes.header} position="fixed">
     <Toolbar>
       <Grid component="header" container justify="space-evenly">
         <Grid item xs="auto">

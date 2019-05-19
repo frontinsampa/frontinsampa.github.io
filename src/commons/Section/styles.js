@@ -1,13 +1,8 @@
 export default () => ({
   section: {
-    position: 'relative',
+    minHeight: '100vh',
   },
   sectionTitle: {
-    fontSize: 50,
-    display: 'inline-block',
     textTransform: 'lowercase',
-  },
-  sectionType: {
-    extend: 'sectionTitle',
   },
 });
