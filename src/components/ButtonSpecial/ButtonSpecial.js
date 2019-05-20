@@ -15,6 +15,8 @@ const ButtonSpecial = (props) => {
   const {
     classes,
     children,
+    custom,
+    width,
     ...otherProps
   } = props;
 

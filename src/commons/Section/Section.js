@@ -14,9 +14,11 @@ const Section = ({ component, classes, title, children }) => (
   <Grid id="test" component={component || 'section'} container className={classes.section} justify="center" alignItems="center">
     <Grid item xs={10}>
       { title && (
-        <Typed component="h2" className={classes.sectionTitle} variant="h5" content={[
-          stringToFunctionStyle(title),
-        ]} />
+        <React.Fragment>
+          <Typed component="h2" className={classes.sectionTitle} variant="h5" content={[
+            stringToFunctionStyle(title),
+          ]} a11y={{ content: title }} />
+        </React.Fragment>
       ) }
 
       { children }
