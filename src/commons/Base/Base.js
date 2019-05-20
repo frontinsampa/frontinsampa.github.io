@@ -1,19 +1,14 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
+import PropTypes from 'prop-types';
+
 import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import { withStyles } from '../../styles';
+import { MAX_WIDTH } from './styles';
 
-import Header from '../Header';
-
-import styles, { MAX_WIDTH } from './styles';
-
-const Base = ({ classes, children }) => (
+const Base = ({ children }) => (
   <React.Fragment>
     <CssBaseline />
-
-    <Header />
 
     <Container component="main" maxWidth={MAX_WIDTH}>
       { children }
@@ -21,4 +16,8 @@ const Base = ({ classes, children }) => (
   </React.Fragment>
 );
 
-export default withStyles(styles)(Base);
+Base.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default Base;

@@ -1,8 +1,9 @@
-export default () => ({
+export default ({ palette, spacing }) => ({
   section: {
     minHeight: '100vh',
   },
   sectionTitle: {
-    textTransform: 'lowercase',
+    marginBottom: spacing(5),
+    color: ({ titleCustomColor }) => palette[titleCustomColor] || palette.text.primary,
   },
 });

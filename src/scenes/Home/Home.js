@@ -13,11 +13,6 @@ const Home = () => (
   <React.Fragment>
     <Hero />
     <About />
-    <Speakers />
-    <Host />
-    <Place />
-    <Sponsors />
-    <Partners />
     <Contact />
   </React.Fragment>
 );

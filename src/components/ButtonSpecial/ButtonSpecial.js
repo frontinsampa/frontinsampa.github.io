@@ -29,4 +29,9 @@ const ButtonSpecial = (props) => {
   );
 };
 
+ButtonSpecial.propTypes = {
+  classes: PropTypes.object.isRequired,
+  children: PropTypes.node.isRequired,
+};
+
 export default withStyles(styles)(ButtonSpecial);

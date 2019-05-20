@@ -1,11 +1,14 @@
 import uuid from 'uuid/v4';
 
 import React from 'react';
+
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+
+import Svg from '../../components/Svg';
 
 import Ticket from '../Ticket';
 
@@ -47,7 +50,10 @@ const Header = ({ classes }) => (
       <Grid component="header" container justify="space-evenly">
         <Grid item xs="auto">
           <Link href="/" underline="none">
-            <img src="https://via.placeholder.com/150x50&text=LOGO" alt="Front In Sampa 2019" aria-label="Logo do evento" />
+            <Svg src="/assets/images/logo-header.svg" fallback="/assets/images/logo-header.png" a11y={{
+              title: 'Logo do Front In Sampa',
+              description: 'Contém o nome do evento escrito com o ano de 2019 no final e 3 faixas coloridas alinhados embaixo, vermelho, amarelo e roxo, que fazem referência ao mini mapa de editores de texto famosos como Sublime, Atom e Visual Studio Code.',
+            }} />
           </Link>
         </Grid>
 

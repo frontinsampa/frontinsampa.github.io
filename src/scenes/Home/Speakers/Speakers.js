@@ -50,7 +50,7 @@ const SPEAKERS = [
 ];
 
 const Speakers = () => (
-  <Section title="Palestrantes">
+  <Section title="Palestrantes" titleCustomColor="nature">
     <GridList cellHeight={250} cols={4}>
       {
         SPEAKERS.map(({ name, description, photo }, key) => (

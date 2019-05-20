@@ -1,29 +1,27 @@
-import React, { useRef } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+
+import stringToFunctionStyle from '../../utils/stringToFunctionStyle';
+
+import Typed from '../../components/Typed';
 
 import { withStyles } from '../../styles';
 
 import styles from './styles';
 
-const Section = ({ component = 'section', classes, title, children }) => {
-  const $title = useRef();
+const Section = ({ component, classes, title, children }) => (
+  <Grid id="test" component={component || 'section'} container className={classes.section} justify="center" alignItems="center">
+    <Grid item xs={10}>
+      { title && (
+        <Typed component="h2" className={classes.sectionTitle} variant="h5" content={[
+          stringToFunctionStyle(title),
+        ]} />
+      ) }
 
-  return (
-    <Grid component={component} container className={classes.section} justify="center" alignItems="center">
-      <Grid item xs={10}>
-        { title && (
-          <Typography component="h2" className={classes.sectionTitle} variant="h5" ref={$title}>
-            { title }
-          </Typography>
-        ) }
-
-        { children }
-      </Grid>
+      { children }
     </Grid>
-  );
-};
+  </Grid>
+);
 
 export default withStyles(styles)(Section);

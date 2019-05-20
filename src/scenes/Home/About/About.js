@@ -1,43 +1,85 @@
+import uuid from 'uuid/v4';
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 
-import { withStyles } from '../../../styles';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+
+import Typography from '../../../components/Typography';
+import CountUp from '../../../components/CountUp';
 
 import Section from '../../../commons/Section';
 
-import styles from './styles';
+/**
+ * @todo Move `ABOUT_HISTORY` to configuration file.
+ */
+const ABOUT_HISTORY = [
+  {
+    number: 2000,
+    content: 'participantes',
+    color: 'energy',
+    a11y: {
+      description: 'Mais de 2 mil participantes',
+    },
+  },
+  {
+    number: 70,
+    content: 'palestrantes',
+    color: 'sunrise',
+    a11y: {
+      description: 'Mais de 70 palestrantes',
+    },
+  },
+  {
+    number: 30,
+    content: 'patrocinadores',
+    color: 'sunset',
+    a11y: {
+      description: 'Mais de 30 patrocinadores',
+    },
+  },
+  {
+    number: 70,
+    content: 'apoiadores',
+    color: 'nature',
+    a11y: {
+      description: 'Mais de 70 apoiadores',
+    },
+  },
+];
 
 const About = () => (
-  <Section title="Front In Sampa 2019">
-    <Typography component="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur natus odio fugit aperiam sequi autem soluta, repudiandae quia tempora necessitatibus repellat, reprehenderit nihil ipsum rerum, cupiditate quidem minus aliquam libero.</Typography>
+  <Section title="O evento" titleCustomColor="sunrise">
+    <Box mb={6}>
+      <Typography component="p" paragraph variant="h5">
+        O <Box component="strong" color="sunrise" fontWeight="normal">Front In Sampa é o tradicional evento de Front-End</Box> sediado em São Paulo com 7 edições de sucesso desde 2012. Com o posto de maior do Brasil e bem aclamado pelo público da área, trazemos conteúdo de alta qualidade aliado a uma experiência incrível do início ao fim, sempre pensando na inclusão, no aprendizado e na diversão.
+      </Typography>
+    </Box>
 
-    <Grid component="ul" container>
-      <Grid component="li" item xs>
-        <Typography component="span">
-          <span>70+</span> palestrantes
-        </Typography>
-      </Grid>
+    <Typography component="p" paragraph variant="h6">
+      Desde de 2012 contamos com:
+    </Typography>
 
-      <Grid component="li" item xs>
-        <Typography component="span">
-          <span>2+</span> participantes
-        </Typography>
-      </Grid>
-
-      <Grid component="li" item xs>
-        <Typography component="span">
-          <span>30+</span> patrocinadores
-        </Typography>
-      </Grid>
-
-      <Grid component="li" item xs>
-        <Typography component="span">
-          <span>70+</span> apoiadores
-        </Typography>
-      </Grid>
+    <Grid container>
+      {
+        ABOUT_HISTORY.map(({
+          number,
+          content,
+          color,
+          a11y,
+        }) => (
+          <Grid item xs={12} md={4} key={uuid()}>
+            <Box component="p" mb={4}>
+              <Typography component="span" variant="h6" aria-label={a11y.description}>
+                <Typography component="span" variant="h4" display="block" paragraph customColor={color}>
+                  <CountUp number={number} posfix="+" />
+                </Typography> {content}
+              </Typography>
+            </Box>
+          </Grid>
+        ))
+      }
     </Grid>
   </Section>
 );
 
-export default withStyles(styles)(About);
+export default About;
