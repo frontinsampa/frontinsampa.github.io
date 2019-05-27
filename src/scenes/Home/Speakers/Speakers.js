@@ -4,7 +4,6 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
-import Box from '@material-ui/core/Box';
 
 import Section from '../../../commons/Section';
 
@@ -14,83 +13,104 @@ import SpotBar from '../../../components/SpotBar';
 
 const SPEAKERS_LIST = [
   {
-    name: 'Lorem Ipsum',
-    description: 'Lorem ipsum dolor siet amiet',
+    name: 'Hugo Bessa',
+    occupation: 'Desenvolvedor Front-End',
+    description: 'Desenvolvedor Front-End com foco em simplicidade.',
     photo: 'https://via.placeholder.com/340x340/181819?text=<Palestrante />',
     social: {
-      twitter: '/',
-      github: '/',
-      personal: '/',
+      twitter: 'https://twitter.com/hugobessaa',
+      github: null,
+      personal: null,
     },
   },
   {
-    name: 'Lorem Ipsum',
-    description: 'Lorem ipsum dolor siet amiet',
+    name: null,
+    description: null,
     photo: 'https://via.placeholder.com/340x340/181819?text=<Palestrante />',
     social: {
       twitter: '/',
-      github: '/',
-      personal: '/',
+      github: null,
+      personal: null,
     },
   },
   {
-    name: 'Lorem Ipsum',
-    description: 'Lorem ipsum dolor siet amiet',
+    name: null,
+    description: null,
     photo: 'https://via.placeholder.com/340x340/181819?text=<Palestrante />',
     social: {
       twitter: '/',
-      github: '/',
-      personal: '/',
+      github: null,
+      personal: null,
     },
   },
   {
-    name: 'Lorem Ipsum',
-    description: 'Lorem ipsum dolor siet amiet',
+    name: null,
+    description: null,
     photo: 'https://via.placeholder.com/340x340/181819?text=<Palestrante />',
     social: {
       twitter: '/',
-      github: '/',
-      personal: '/',
+      github: null,
+      personal: null,
     },
   },
   {
-    name: 'Lorem Ipsum',
-    description: 'Lorem ipsum dolor siet amiet',
+    name: null,
+    description: null,
     photo: 'https://via.placeholder.com/340x340/181819?text=<Palestrante />',
     social: {
       twitter: '/',
-      github: '/',
-      personal: '/',
+      github: null,
+      personal: null,
     },
   },
   {
-    name: 'Lorem Ipsum',
-    description: 'Lorem ipsum dolor siet amiet',
+    name: null,
+    description: null,
     photo: 'https://via.placeholder.com/340x340/181819?text=<Palestrante />',
     social: {
       twitter: '/',
-      github: '/',
-      personal: '/',
+      github: null,
+      personal: null,
     },
   },
   {
-    name: 'Lorem Ipsum',
-    description: 'Lorem ipsum dolor siet amiet',
+    name: null,
+    description: null,
     photo: 'https://via.placeholder.com/340x340/181819?text=<Palestrante />',
     social: {
       twitter: '/',
-      github: '/',
-      personal: '/',
+      github: null,
+      personal: null,
     },
   },
   {
-    name: 'Lorem Ipsum',
-    description: 'Lorem ipsum dolor siet amiet',
+    name: null,
+    description: null,
     photo: 'https://via.placeholder.com/340x340/181819?text=<Palestrante />',
     social: {
       twitter: '/',
-      github: '/',
-      personal: '/',
+      github: null,
+      personal: null,
+    },
+  },
+  {
+    name: null,
+    description: null,
+    photo: 'https://via.placeholder.com/340x340/181819?text=<Palestrante />',
+    social: {
+      twitter: '/',
+      github: null,
+      personal: null,
+    },
+  },
+  {
+    name: null,
+    description: null,
+    photo: 'https://via.placeholder.com/340x340/181819?text=<Palestrante />',
+    social: {
+      twitter: '/',
+      github: null,
+      personal: null,
     },
   },
 ];
@@ -101,6 +121,7 @@ const Speakers = () => (
       {
         SPEAKERS_LIST.map(({
           name,
+          occupation,
           description,
           photo,
           social,
@@ -114,6 +135,10 @@ const Speakers = () => (
                   <SpotBar>
                     <Typography component="h3" variant="h6">
                       { name }
+                    </Typography>
+
+                    <Typography component="p" variant="body2" paragraph>
+                      { occupation }
                     </Typography>
 
                     <Typography component="p" paragraph>
