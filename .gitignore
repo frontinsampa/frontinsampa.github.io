@@ -1,5 +1,5 @@
 .vscode
 node_modules
 public
-
+jest/coverage
 .DS_Store

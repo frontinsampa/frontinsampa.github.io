@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components: <Section /> With \`title\` prop as \`null\`. Create a snapshot. 1`] = `
+<Section
+  classes={
+    Object {
+      "section": "Section-section-1 Section-section-4",
+      "sectionContainer": "Section-sectionContainer-2",
+      "sectionTitle": "Section-sectionTitle-3 Section-sectionTitle-5",
+    }
+  }
+  collapsed={false}
+  component="section"
+  title={null}
+>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+</Section>
+`;

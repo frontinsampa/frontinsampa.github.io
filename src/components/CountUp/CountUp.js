@@ -6,7 +6,7 @@ import { withStyles } from '../../styles';
 
 import styles from './styles';
 
-const CountUp = ({ number, posfix }) => {
+const CountUp = ({ number, prefix, posfix }) => {
   const { countUp } = useCountUp({
     end: number,
     duration: 2,
@@ -14,18 +14,20 @@ const CountUp = ({ number, posfix }) => {
 
   return (
     <React.Fragment>
-      { countUp + posfix }
+      {prefix + countUp + posfix}
     </React.Fragment>
   );
 };
 
 CountUp.propTypes = {
   number: PropTypes.number.isRequired,
+  prefix: PropTypes.string,
   posfix: PropTypes.string,
 };
 
 CountUp.defaultProps = {
   posfix: '',
+  prefix: '',
 };
 
 export default withStyles(styles)(CountUp);

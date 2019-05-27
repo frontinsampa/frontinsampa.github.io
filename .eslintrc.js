@@ -1,5 +1,11 @@
 module.exports = {
   extends: 'airbnb',
+  parser: 'babel-eslint',
+  plugins: ['jest'],
+  env: {
+    browser: true,
+    'jest/globals': true,
+  },
   rules: {
     'max-len': 0,
     'no-console': 0,
@@ -11,9 +17,6 @@ module.exports = {
       },
     ],
     'react/jsx-one-expression-per-line': 0,
-  },
-  parser: 'babel-eslint',
-  env: {
-    browser: true,
+    'react/forbid-prop-types': 0,
   },
 };

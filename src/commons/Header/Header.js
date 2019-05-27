@@ -50,10 +50,7 @@ const Header = ({ classes }) => (
       <Grid component="header" container justify="space-evenly">
         <Grid item xs="auto">
           <Link href="/" underline="none">
-            <Svg src="/assets/images/logo-header.svg" fallback="/assets/images/logo-header.png" a11y={{
-              title: 'Logo do Front In Sampa',
-              description: 'Contém o nome do evento escrito com o ano de 2019 no final e 3 faixas coloridas alinhados embaixo, vermelho, amarelo e roxo, que fazem referência ao mini mapa de editores de texto famosos como Sublime, Atom e Visual Studio Code.',
-            }} />
+            <Svg src="/assets/images/logo-header.svg" fallback="/assets/images/logo-header.png" />
           </Link>
         </Grid>
 

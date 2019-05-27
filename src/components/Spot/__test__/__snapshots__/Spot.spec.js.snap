@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components: <Spot /> Create a snapshot. 1`] = `
+<Spot
+  classes={
+    Object {
+      "spot": "Spot-spot-1",
+    }
+  }
+>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+</Spot>
+`;

@@ -1,65 +1,164 @@
 import uuid from 'uuid/v4';
 
 import React from 'react';
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
+import Box from '@material-ui/core/Box';
 
 import Section from '../../../commons/Section';
 
-const SPEAKERS = [
+import Svg from '../../../components/Svg';
+import Spot from '../../../components/Spot';
+import SpotBar from '../../../components/SpotBar';
+
+const SPEAKERS_LIST = [
   {
     name: 'Lorem Ipsum',
     description: 'Lorem ipsum dolor siet amiet',
-    photo: 'https://via.placeholder.com/250x250&text=SPEAKER',
+    photo: 'https://via.placeholder.com/340x340/181819?text=<Palestrante />',
+    social: {
+      twitter: '/',
+      github: '/',
+      personal: '/',
+    },
   },
   {
     name: 'Lorem Ipsum',
     description: 'Lorem ipsum dolor siet amiet',
-    photo: 'https://via.placeholder.com/250x250&text=SPEAKER',
+    photo: 'https://via.placeholder.com/340x340/181819?text=<Palestrante />',
+    social: {
+      twitter: '/',
+      github: '/',
+      personal: '/',
+    },
   },
   {
     name: 'Lorem Ipsum',
     description: 'Lorem ipsum dolor siet amiet',
-    photo: 'https://via.placeholder.com/250x250&text=SPEAKER',
+    photo: 'https://via.placeholder.com/340x340/181819?text=<Palestrante />',
+    social: {
+      twitter: '/',
+      github: '/',
+      personal: '/',
+    },
   },
   {
     name: 'Lorem Ipsum',
     description: 'Lorem ipsum dolor siet amiet',
-    photo: 'https://via.placeholder.com/250x250&text=SPEAKER',
+    photo: 'https://via.placeholder.com/340x340/181819?text=<Palestrante />',
+    social: {
+      twitter: '/',
+      github: '/',
+      personal: '/',
+    },
   },
   {
     name: 'Lorem Ipsum',
     description: 'Lorem ipsum dolor siet amiet',
-    photo: 'https://via.placeholder.com/250x250&text=SPEAKER',
+    photo: 'https://via.placeholder.com/340x340/181819?text=<Palestrante />',
+    social: {
+      twitter: '/',
+      github: '/',
+      personal: '/',
+    },
   },
   {
     name: 'Lorem Ipsum',
     description: 'Lorem ipsum dolor siet amiet',
-    photo: 'https://via.placeholder.com/250x250&text=SPEAKER',
+    photo: 'https://via.placeholder.com/340x340/181819?text=<Palestrante />',
+    social: {
+      twitter: '/',
+      github: '/',
+      personal: '/',
+    },
   },
   {
     name: 'Lorem Ipsum',
     description: 'Lorem ipsum dolor siet amiet',
-    photo: 'https://via.placeholder.com/250x250&text=SPEAKER',
+    photo: 'https://via.placeholder.com/340x340/181819?text=<Palestrante />',
+    social: {
+      twitter: '/',
+      github: '/',
+      personal: '/',
+    },
   },
   {
     name: 'Lorem Ipsum',
     description: 'Lorem ipsum dolor siet amiet',
-    photo: 'https://via.placeholder.com/250x250&text=SPEAKER',
+    photo: 'https://via.placeholder.com/340x340/181819?text=<Palestrante />',
+    social: {
+      twitter: '/',
+      github: '/',
+      personal: '/',
+    },
   },
 ];
 
 const Speakers = () => (
-  <Section title="Palestrantes" titleCustomColor="nature">
-    <GridList cellHeight={250} cols={4}>
+  <Section collapsed>
+    <Grid container>
       {
-        SPEAKERS.map(({ name, description, photo }, key) => (
-          <GridListTile key={uuid()}>
-            <img src={photo} alt={name} />
-          </GridListTile>
+        SPEAKERS_LIST.map(({
+          name,
+          description,
+          photo,
+          social,
+        }) => (
+          <Grid item xs={12} sm={6} md={4} lg={3} key={uuid()}>
+            <Spot>
+              <img src={photo} alt={name} />
+
+              {
+                description && (
+                  <SpotBar>
+                    <Typography component="h3" variant="h6">
+                      { name }
+                    </Typography>
+
+                    <Typography component="p" paragraph>
+                      { description }
+                    </Typography>
+
+                    <Grid container alignItems="center" spacing={2}>
+                      {
+                        social.twitter && (
+                          <Grid item xs="auto">
+                            <Link href={social.twitter} underline="none" target="_blank" rel="noopener">
+                              <Svg src="/assets/images/social-media-twitter.svg" fallback="/assets/images/social-media-twitter.png" />
+                            </Link>
+                          </Grid>
+                        )
+                      }
+
+                      {
+                        social.github && (
+                          <Grid item xs="auto">
+                            <Link href={social.github} underline="none" target="_blank" rel="noopener">
+                              <Svg src="/assets/images/social-media-twitter.svg" fallback="/assets/images/social-media-twitter.png" />
+                            </Link>
+                          </Grid>
+                        )
+                      }
+
+                      {
+                        social.personal && (
+                          <Grid item xs="auto">
+                            <Link href={social.personal} underline="none" target="_blank" rel="noopener">
+                              <Svg src="/assets/images/social-media-twitter.svg" fallback="/assets/images/social-media-twitter.png" />
+                            </Link>
+                          </Grid>
+                        )
+                      }
+                    </Grid>
+                  </SpotBar>
+                )
+              }
+            </Spot>
+          </Grid>
         ))
       }
-    </GridList>
+    </Grid>
   </Section>
 );
 

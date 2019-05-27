@@ -19,9 +19,6 @@ const SOCIAL_MEDIA = [
     icon: {
       src: '/assets/images/social-media-twitter.svg',
       fallback: '/assets/images/social-media-twitter.png',
-      a11y: {
-        title: 'Icone Twitter',
-      },
     },
     a11y: {
       description: 'Abrir nossa página no Twitter',
@@ -32,9 +29,6 @@ const SOCIAL_MEDIA = [
     icon: {
       src: '/assets/images/social-media-instagram.svg',
       fallback: '/assets/images/social-media-instagram.png',
-      a11y: {
-        title: 'Icone Instagram',
-      },
     },
     a11y: {
       description: 'Abrir nossa página no Instagram',
@@ -45,9 +39,6 @@ const SOCIAL_MEDIA = [
     icon: {
       src: '/assets/images/social-media-facebook.svg',
       fallback: '/assets/images/social-media-facebook.png',
-      a11y: {
-        title: 'Icone Facebook',
-      },
     },
     a11y: {
       description: 'Abrir nossa página no Facebook',
@@ -58,9 +49,6 @@ const SOCIAL_MEDIA = [
     icon: {
       src: '/assets/images/social-media-youtube.svg',
       fallback: '/assets/images/social-media-youtube.png',
-      a11y: {
-        title: 'Icone YouTube',
-      },
     },
     a11y: {
       description: 'Abrir nossa página no YouTube',

@@ -1,19 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import { MAX_WIDTH } from './styles';
-
 const Base = ({ children }) => (
-  <React.Fragment>
+  <main>
     <CssBaseline />
 
-    <Container component="main" maxWidth={MAX_WIDTH}>
-      { children }
-    </Container>
-  </React.Fragment>
+    { children }
+  </main>
 );
 
 Base.propTypes = {

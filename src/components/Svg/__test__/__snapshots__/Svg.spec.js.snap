@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components: <Svg /> Create a snapshot. 1`] = `
+<InlineSVG
+  cacheRequests={true}
+  src="/path/to/image.svg"
+  uniquifyIDs={false}
+>
+  <Image
+    a11y={null}
+    alt=""
+    presentation={true}
+    src="/path/to/image.png"
+  />
+</InlineSVG>
+`;

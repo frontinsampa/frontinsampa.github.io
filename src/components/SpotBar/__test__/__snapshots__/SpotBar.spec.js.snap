@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components: <SpotBar /> Create a snapshot. 1`] = `
+<SpotBar
+  classes={
+    Object {
+      "spotBar": "SpotBar-spotBar-1",
+      "spotBarContent": "SpotBar-spotBarContent-2",
+    }
+  }
+>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+</SpotBar>
+`;

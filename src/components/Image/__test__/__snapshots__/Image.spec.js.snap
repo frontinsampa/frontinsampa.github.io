@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components: <Image /> With \`presentation\` as \`true\`. Create a snapshot. 1`] = `
+<img
+  alt=""
+  role="presentation"
+  src="/path/to/image.png"
+  srcSet="/path/to/image.png 2x"
+/>
+`;
+
+exports[`Components: <Image /> With \`presentation\` props as \`false\`. Create a snapshot. 1`] = `
+<Fragment>
+  <img
+    alt=""
+    aria-describedby="string"
+    src="/path/to/image.png"
+    srcSet="/path/to/image.png 2x"
+  />
+  <span
+    id="string"
+  >
+    Lorem ipsum dolor sit amet consectetur adipisicing elit
+  </span>
+</Fragment>
+`;

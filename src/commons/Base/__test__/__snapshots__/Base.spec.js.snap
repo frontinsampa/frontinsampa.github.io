@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Commons: <Base /> Create a snapshot. 1`] = `
+<main>
+  <CssBaseline />
+  <div>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+  </div>
+</main>
+`;
