@@ -48,7 +48,7 @@ const TIMELINE_LIST = [
 const Timeline = () => (
   <Section>
     <Typography component="p" variant="h4" paragraph>
-      1 dia, 8 horas de conteúdo, 7 talks, 2 Lightning Talks, 1 Keynote.
+      1 dia, 8 horas de conteúdo, 7 Talks, 2 Lightning Talks, 1 Keynote.
     </Typography>
 
     <Typography component="p">
