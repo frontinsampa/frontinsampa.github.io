@@ -7,6 +7,8 @@ const Image = ({
   alt,
   presentation,
   a11y,
+  width,
+  height,
 }) => {
   const id = uuid();
 
@@ -14,10 +16,10 @@ const Image = ({
     /**
       * For decorative images like icons, illustrations and others.
       */
-    <img src={src} srcSet={`${src} 2x`} alt="" role="presentation" />
+    <img src={src} srcSet={`${src} 2x`} alt="" role="presentation" width={width} height={height} />
   ) : (
     <React.Fragment>
-      <img src={src} srcSet={`${src} 2x`} alt={alt} aria-describedby={id} />
+      <img src={src} srcSet={`${src} 2x`} alt={alt} aria-describedby={id} width={width} height={height} />
 
       <span id={id}>
         { a11y.description }
@@ -29,6 +31,14 @@ const Image = ({
 Image.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
+  width: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  height: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   presentation: PropTypes.bool,
   a11y: PropTypes.shape({
     title: PropTypes.string,
@@ -39,6 +49,8 @@ Image.propTypes = {
 Image.defaultProps = {
   presentation: false,
   a11y: null,
+  width: 'auto',
+  height: 'auto',
 };
 
 export default Image;

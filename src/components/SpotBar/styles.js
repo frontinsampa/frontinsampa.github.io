@@ -20,7 +20,7 @@ export default ({ palette }) => ({
   },
   spotBarContent: {
     alignItems: 'flex-end',
-    backgroundColor: fade(palette.sunset, 0.8),
+    backgroundColor: fade(palette.tar, 0.8),
     display: 'flex',
     height: 'inherit',
     left: 0,
