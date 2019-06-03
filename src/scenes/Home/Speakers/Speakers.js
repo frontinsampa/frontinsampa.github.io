@@ -26,13 +26,14 @@ const SPEAKERS_LIST = [
     },
   },
   {
-    name: null,
-    description: null,
-    photo: '/assets/images/speaker.jpg',
+    name: 'Hugo Bessa',
+    occupation: 'Desenvolvedor Front-End',
+    description: 'Desenvolvedor Front-End com foco em simplicidade.',
+    photo: '/assets/images/speaker-hugo-bessa.png',
     social: {
-      twitter: '/',
-      github: null,
-      personal: null,
+      twitter: 'https://twitter.com/hugobessaa',
+      github: 'https://github.com/hugobessaa',
+      personal: 'http://hugobessa.com.br',
     },
   },
   {
