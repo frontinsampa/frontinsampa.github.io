@@ -37,11 +37,12 @@ const SPEAKERS_LIST = [
     },
   },
   {
-    name: null,
-    description: null,
-    photo: '/assets/images/speaker.jpg',
+    name: 'Josélia Costa',
+    occupation: 'Desenvolvedora de Software',
+    description: 'Desenvolvedora de software na ThoughtWorks, trabalha com desenvolvimento desde 2014 e adora a stack de front-end.',
+    photo: '/assets/images/speaker-joselia-costa.png',
     social: {
-      twitter: '/',
+      twitter: 'https://twitter.com/meninadoviolao',
       github: null,
       personal: null,
     },
