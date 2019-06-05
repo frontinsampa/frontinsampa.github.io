@@ -48,13 +48,14 @@ const SPEAKERS_LIST = [
     },
   },
   {
-    name: null,
-    description: null,
-    photo: '/assets/images/speaker.jpg',
+    name: 'Keilla Fernandes',
+    occupation: 'Consultora Senior de Desenvolvimento de Software',
+    description: 'Desenvolvedora de software com mais de 11 de experiência, fascinada pela área de front-end na qual é especialista.',
+    photo: '/assets/images/speaker-keilla-fernandes.png',
     social: {
-      twitter: '/',
-      github: null,
-      personal: null,
+      twitter: 'https://twitter.com/@keillamenezes_',
+      github: 'https://github.com/keilla',
+      personal: 'https://www.keilla.io',
     },
   },
   {
