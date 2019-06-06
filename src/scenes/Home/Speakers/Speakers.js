@@ -59,12 +59,13 @@ const SPEAKERS_LIST = [
     },
   },
   {
-    name: null,
-    description: null,
-    photo: '/assets/images/speaker.jpg',
+    name: 'Afonso Pacifer',
+    occupation: 'Leader & Specialist Front-End',
+    description: 'Apaixonado por Open Web e a11y, é um ex evangelista CSS que trabalha com Javascript funcional/universal e almeja ser um Rustacean.',
+    photo: '/assets/images/speaker-afonso-pacifer.png',
     social: {
-      twitter: '/',
-      github: null,
+      twitter: 'https://twitter.com/afonsopacifer',
+      github: 'https://github.com/afonsopacifer',
       personal: null,
     },
   },
