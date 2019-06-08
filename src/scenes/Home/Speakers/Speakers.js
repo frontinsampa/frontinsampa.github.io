@@ -70,13 +70,14 @@ const SPEAKERS_LIST = [
     },
   },
   {
-    name: null,
-    description: null,
-    photo: '/assets/images/speaker.jpg',
+    name: 'Wharley Ornelas',
+    occupation: 'Full Stack Developer',
+    description: 'Desenvolvedor Full Stack com mais de 15 anos de experiência, membro ativo das comunidades e organizador do NodeSchool BH.',
+    photo: '/assets/images/speaker-wharley-ornelas.png',
     social: {
-      twitter: '/',
-      github: null,
-      personal: null,
+      twitter: 'https://twitter.com/wharleyornelas',
+      github: 'https://github.com/wharley',
+      personal: 'https://wharley.github.io/',
     },
   },
   {
