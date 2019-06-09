@@ -11,7 +11,7 @@ filters: &filters
     only: /.*/
 
   branches:
-    only: master
+    only: site
 
 # Configuration.
 
