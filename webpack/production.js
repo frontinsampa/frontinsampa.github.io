@@ -1,6 +1,9 @@
+const dotenv = require('dotenv');
 const merge = require('webpack-merge');
 const HtmlPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+
+dotenv.config();
 
 const commons = require('./commons');
 

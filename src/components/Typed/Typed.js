@@ -10,6 +10,10 @@ const Typed = ({ content, a11y, ...props }) => {
   const $content = useRef();
 
   useEffect(() => {
+    /**
+     * @todo Check ESLint rule.
+     */
+    // eslint-disable-next-line no-new
     new TypedJs($content.current, {
       strings: content,
       typeSpeed: 40,

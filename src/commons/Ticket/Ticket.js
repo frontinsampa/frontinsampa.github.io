@@ -1,5 +1,5 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
+import PropTypes from 'prop-types';
 
 import ButtonSpecial from '../../components/ButtonSpecial';
 
@@ -9,7 +9,7 @@ import styles from './styles';
 
 const SALES_PAGE = 'https://www.sympla.com.br/front-in-sampa-2019__413970';
 
-const Ticket = ({ classes, children, width, height }) => {
+const Ticket = ({ children, width, height }) => {
   const otherProps = {
     width,
     height,
@@ -24,6 +24,20 @@ const Ticket = ({ classes, children, width, height }) => {
       { children }
     </ButtonSpecial>
   );
+};
+
+Ticket.propTypes = {
+  /**
+   * @todo Check `width` and `height` properties.
+   */
+  width: PropTypes.number,
+  height: PropTypes.number,
+  children: PropTypes.node.isRequired,
+};
+
+Ticket.defaultProps = {
+  width: 0,
+  height: 0,
 };
 
 export default withStyles(styles)(Ticket);

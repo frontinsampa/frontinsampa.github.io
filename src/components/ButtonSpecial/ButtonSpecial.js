@@ -34,6 +34,16 @@ const ButtonSpecial = (props) => {
 ButtonSpecial.propTypes = {
   classes: PropTypes.object.isRequired,
   children: PropTypes.node.isRequired,
+  /**
+   * @todo Check `width` and `custom` properties.
+   */
+  custom: PropTypes.object,
+  width: PropTypes.number,
+};
+
+ButtonSpecial.defaultProps = {
+  custom: {},
+  width: 0,
 };
 
 export default withStyles(styles)(ButtonSpecial);

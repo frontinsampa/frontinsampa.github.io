@@ -1,10 +1,20 @@
 const path = require('path');
+const dotenv = require('dotenv');
 const webpack = require('webpack');
 const HtmlPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
-const { NODE_ENV } = process.env;
+dotenv.config();
+
+const { NODE_ENV, SERVICE_GTM } = process.env;
+const ENVIROMENT_PUBLIC = {
+  SERVICE_GTM,
+};
+
+const environment = Object.keys(ENVIROMENT_PUBLIC).reduce((env, key) => ({
+  [key]: JSON.stringify(ENVIROMENT_PUBLIC[key]),
+}), {});
 
 /**
  * Conditional configuration exception by environment to
@@ -38,7 +48,6 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           'babel-loader',
-          // 'eslint-loader',
         ],
       },
       {
@@ -62,6 +71,7 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.DefinePlugin(environment),
     new HtmlPlugin({
       template: './src/index.html',
     }),
@@ -76,5 +86,3 @@ module.exports = {
     ]),
   ],
 };
-
-// console.log(path.parse(path.posix.resolve('./public')));
