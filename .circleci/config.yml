@@ -1,0 +1,125 @@
+# Anchors.
+
+machine: &machine
+  working_directory: ~/project
+
+  docker:
+    - image: circleci/node:10.15.0
+
+filters: &filters
+  tags:
+    only: /.*/
+
+  branches:
+    only: master
+
+# Configuration.
+
+version: 2.1
+
+jobs:
+  install:
+    <<: *machine
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - node-modules-{{ checksum "yarn.lock" }}
+
+      - run:
+          name: Install dependencies
+          command: |
+            yarn global add gh-pages
+            yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: node-modules-{{ checksum "yarn.lock" }}
+
+      - store_artifacts:
+          path: yarn-error.log
+
+      - persist_to_workspace:
+          root: ~/project
+          paths: .
+
+  test_static:
+    <<: *machine
+
+    steps:
+      - attach_workspace:
+          at: ~/project
+
+      - run:
+          name: Execute static test
+          command: yarn test:static
+
+  test_unit:
+    <<: *machine
+
+    steps:
+      - attach_workspace:
+          at: ~/project
+
+      - run:
+          name: Execute unit test
+          command: yarn test:unit
+
+  build:
+    <<: *machine
+
+    steps:
+      - attach_workspace:
+          at: ~/project
+
+      - run:
+          name: Create build
+          command: yarn build
+
+      - persist_to_workspace:
+          root: ~/project
+          paths: .
+
+  deploy:
+    <<: *machine
+
+    steps:
+      - attach_workspace:
+          at: ~/project
+
+      - run:
+          name: Push to GitHub Pages
+          command: |
+            gh-pages --branch master --dist ./public
+
+      - store_artifacts:
+          path: yarn-error.log
+
+workflows:
+  version: 2.1
+
+  process:
+    jobs:
+      - install
+
+      - test_static:
+          requires:
+            - install
+
+      - test_unit:
+          requires:
+            - install
+
+      - build:
+          requires:
+            - test_static
+            - test_unit
+
+          filters: *filters
+
+      - deploy:
+          requires:
+            - build

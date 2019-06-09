@@ -4,10 +4,9 @@
   "description": "Front In Sampa 2019.",
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --config ./webpack/development.js",
-    "build": "sh ./scripts/deploy && NODE_ENV=production webpack --config ./webpack/production.js",
-    "test": "jest --config ./jest/config.js",
-    "test:watch": "yarn test --watch",
-    "test:coverage": "yarn test --coverage",
+    "build": "sh ./scripts/build && NODE_ENV=production webpack --config ./webpack/production.js",
+    "test:static": "eslint --config ./.eslintrc.js --ext .js src",
+    "test:unit": "jest --config ./jest/config.js",
     "deploy": "gh-pages --branch master --dist ./public"
   },
   "author": "Keit Oliveira <keitoliveira@outlook.com>",
@@ -53,7 +52,6 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.0.0-beta.1",
-    "gh-pages": "^2.0.1",
     "lodash": "^4.17.11",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
