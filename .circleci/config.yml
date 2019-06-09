@@ -30,9 +30,7 @@ jobs:
 
       - run:
           name: Install dependencies
-          command: |
-            yarn global add gh-pages
-            yarn install
+          command: yarn install
 
       - save_cache:
           paths:
@@ -88,11 +86,12 @@ jobs:
 
     steps:
       - attach_workspace:
-          at: ~/project
+          at: ~/project/public
 
       - run:
           name: Push to GitHub Pages
           command: |
+            yarn global add gh-pages
             gh-pages --branch master --dist ./public
 
       - store_artifacts:

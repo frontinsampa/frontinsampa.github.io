@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if test -f ./.env; then
+  rm ./.env
+fi
+
+echo "
+SERVICE_GTM=UA-99999999-9
+NODE_ENV=development
+" >> ./.env
