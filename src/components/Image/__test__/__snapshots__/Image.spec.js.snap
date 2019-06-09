@@ -3,9 +3,11 @@
 exports[`Components: <Image /> With \`presentation\` as \`true\`. Create a snapshot. 1`] = `
 <img
   alt=""
+  height="auto"
   role="presentation"
   src="/path/to/image.png"
   srcSet="/path/to/image.png 2x"
+  width="auto"
 />
 `;
 
@@ -14,8 +16,10 @@ exports[`Components: <Image /> With \`presentation\` props as \`false\`. Create 
   <img
     alt=""
     aria-describedby="string"
+    height="auto"
     src="/path/to/image.png"
     srcSet="/path/to/image.png 2x"
+    width="auto"
   />
   <span
     id="string"

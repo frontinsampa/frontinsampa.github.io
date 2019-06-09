@@ -9,8 +9,10 @@ exports[`Components: <Svg /> Create a snapshot. 1`] = `
   <Image
     a11y={null}
     alt=""
+    height="auto"
     presentation={true}
     src="/path/to/image.png"
+    width="auto"
   />
 </InlineSVG>
 `;
