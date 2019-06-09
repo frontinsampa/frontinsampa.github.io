@@ -1,6 +1,6 @@
 import uuid from 'uuid/v4';
-
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -77,5 +77,9 @@ const Header = ({ classes }) => (
     </Toolbar>
   </AppBar>
 );
+
+Header.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(Header);
