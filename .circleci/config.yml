@@ -44,6 +44,8 @@ jobs:
       - attach_workspace:
           at: ~/project
 
+      - run: ls -la
+
       - run:
           name: Execute static test
           command: yarn test:static
