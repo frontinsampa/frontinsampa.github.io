@@ -6,13 +6,6 @@ machine: &machine
   docker:
     - image: circleci/node:10.15.0
 
-filters: &filters
-  tags:
-    only: /.*/
-
-  branches:
-    only: site
-
 # Configuration.
 
 version: 2.1
@@ -86,13 +79,11 @@ jobs:
 
     steps:
       - attach_workspace:
-          at: ~/project/public
+          at: ~/project
 
       - run:
           name: Push to GitHub Pages
-          command: |
-            yarn global add gh-pages
-            gh-pages --branch master --dist ./public
+          command: gh-pages --branch master --dist ./public
 
       - store_artifacts:
           path: yarn-error.log
@@ -116,8 +107,6 @@ workflows:
           requires:
             - test_static
             - test_unit
-
-          filters: *filters
 
       - deploy:
           requires:

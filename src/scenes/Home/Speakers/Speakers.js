@@ -81,13 +81,14 @@ const SPEAKERS_LIST = [
     },
   },
   {
-    name: null,
-    description: null,
-    photo: '/assets/images/speaker.jpg',
+    name: 'João Cunha',
+    occupation: 'Product Manager',
+    description: 'Product Manager no Nubank e desenvolvedor com mais de 10 anos de experiência, já foi nômade digital e é organizador do GDG Presidente Prudente.',
+    photo: '/assets/images/speaker-joao-cunha.png',
     social: {
-      twitter: '/',
-      github: null,
-      personal: null,
+      twitter: 'https://twitter.com/joaocunha',
+      github: 'https://github.com/joaocunha',
+      personal: 'https://joaocunha.net',
     },
   },
   {
