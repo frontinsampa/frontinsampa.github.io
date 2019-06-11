@@ -85,9 +85,7 @@ jobs:
 
       - run:
           name: Push to GitHub Pages
-          command: |
-            yarn add gh-pages
-            gh-pages --branch master --dist ./public
+          command: gh-pages --branch master --dist ./public
 
       - store_artifacts:
           path: yarn-error.log
