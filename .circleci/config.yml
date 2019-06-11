@@ -6,9 +6,6 @@ machine: &machine
   docker:
     - image: circleci/node:10.15.0
 
-      environment:
-        SERVICE_GTM: ${SERVICE_GTM}
-
 # Configuration.
 
 version: 2.1
@@ -46,8 +43,6 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/project
-
-      - run: ls -la
 
       - run:
           name: Execute static test
@@ -88,7 +83,7 @@ jobs:
 
       - run:
           name: Push to GitHub Pages
-          command: echo "yes" > yarn deploy
+          command: echo "yes" | yarn deploy
 
       - store_artifacts:
           path: yarn-error.log
