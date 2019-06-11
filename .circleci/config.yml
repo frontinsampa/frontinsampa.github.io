@@ -85,7 +85,7 @@ jobs:
 
       - run:
           name: Push to GitHub Pages
-          command: yarn deploy
+          command: echo "yes" > yarn deploy
 
       - store_artifacts:
           path: yarn-error.log
@@ -98,7 +98,7 @@ workflows:
       - install:
           filters:
             branches:
-              ignore: master
+              only: site
 
       - test_static:
           requires:
