@@ -81,9 +81,13 @@ jobs:
       - attach_workspace:
           at: ~/project
 
+      - add_ssh_keys:
+          fingerprints:
+            - ${FINGERPRINT}
+
       - run:
           name: Push to GitHub Pages
-          command: echo "yes" | yarn deploy
+          command: yarn deploy
 
       - store_artifacts:
           path: yarn-error.log
