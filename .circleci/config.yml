@@ -85,14 +85,14 @@ jobs:
 
       - run:
           name: Install dependencies
-          command: npm install -g --silent gh-pages
+          command: yarn add gh-pages
 
       - run:
           name: Push to GitHub Pages
           command: gh-pages --branch master --dist ./public
 
       - store_artifacts:
-          path: ~/npm/_logs/*
+          path: yarn-error.log
 
 workflows:
   version: 2.1
