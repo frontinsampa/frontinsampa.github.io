@@ -84,12 +84,8 @@ jobs:
           at: ~/project
 
       - run:
-          name: Install dependencies
-          command: yarn add gh-pages
-
-      - run:
           name: Push to GitHub Pages
-          command: gh-pages --branch master --dist ./public
+          command: yarn deploy
 
       - store_artifacts:
           path: yarn-error.log

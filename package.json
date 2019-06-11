@@ -7,7 +7,7 @@
     "build": "sh ./scripts/build && NODE_ENV=production webpack --config ./webpack/production.js",
     "test:static": "eslint --config ./.eslintrc.js --ext .js src",
     "test:unit": "jest --config ./jest/config.js",
-    "p": "gh-pages --branch master --dist ./public"
+    "deploy": "gh-pages --branch master --dist ./public"
   },
   "author": "Keit Oliveira <keitoliveira@outlook.com>",
   "license": "MIT",
