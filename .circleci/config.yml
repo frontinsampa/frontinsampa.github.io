@@ -6,6 +6,9 @@ machine: &machine
   docker:
     - image: circleci/node:10.15.0
 
+      environment:
+        SERVICE_GTM: ${SERVICE_GTM}
+
 # Configuration.
 
 version: 2.1
