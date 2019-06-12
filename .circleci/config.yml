@@ -115,6 +115,6 @@ workflows:
             - test_static
             - test_unit
 
-      - deploy:
-          requires:
-            - build
+      # - deploy:
+      #     requires:
+      #       - build

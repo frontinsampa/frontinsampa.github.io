@@ -92,13 +92,14 @@ const SPEAKERS_LIST = [
     },
   },
   {
-    name: null,
-    description: null,
-    photo: '/assets/images/speaker.jpg',
+    name: 'Lari Maza',
+    occupation: 'Desenvolvedora Front-end',
+    description: 'Nascida e residente em São Paulo. Criatura híbrida de designer e dev que coordena o Astro, design system da Magnetis. Autodidata caída de pára-quedas na tecnologia e escritora casual no Medium.',
+    photo: '/assets/images/speaker-larissa-maza.png',
     social: {
-      twitter: '/',
-      github: null,
-      personal: null,
+      twitter: 'https://twitter.com/larimaza',
+      github: 'https://github.com/larimaza',
+      personal: 'https://medium.com/@larimaza',
     },
   },
 ];
