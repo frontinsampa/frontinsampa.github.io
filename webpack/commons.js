@@ -7,10 +7,13 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 dotenv.config();
 
-const { NODE_ENV, SERVICE_GTM } = process.env;
-const ENVIROMENT_PUBLIC = {
+const {
+  NODE_ENV,
+  PATH_PUBLIC,
   SERVICE_GTM,
-};
+} = process.env;
+
+const ENVIROMENT_PUBLIC = { SERVICE_GTM };
 
 const environment = Object.keys(ENVIROMENT_PUBLIC).reduce((env, key) => ({
   [key]: JSON.stringify(ENVIROMENT_PUBLIC[key]),
@@ -26,7 +29,7 @@ module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: './src/index.js',
   output: {
-    path: path.posix.resolve('./public'),
+    path: path.posix.resolve(PATH_PUBLIC),
     publicPath: '/',
   },
   module: {

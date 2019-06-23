@@ -1,120 +1,194 @@
-# Anchors.
+##############
+## Anchors. ##
+##############
 
-machine: &machine
-  working_directory: ~/project
+anchors:
+  - &directory ~/project
 
-  docker:
-    - image: circleci/node:10.15.0
+  - &github_branch_master site
+  - &github_branch_public master
 
-# Configuration.
+  - &environment
+    NODE_ENV: production
+    SERVICE_GTM: UA-32925160-3
+    PATH_PUBLIC: ./public
+    GITHUB_BRANCH_PUBLIC: *github_branch_public
+
+    # GitHub variables required by @semantic-release/git.
+    # https://github.com/semantic-release/git#environment-variables
+    GIT_AUTHOR_NAME: front-in-bot
+    GIT_AUTHOR_EMAIL: technologies@frontinsampa.com.br
+    GIT_COMMITTER_NAME: Front In Bot
+    GIT_COMMITTER_EMAIL: technologies@frontinsampa.com.br
+
+  - &machine
+    working_directory: ~/project
+
+    docker:
+      - image: circleci/node:10.15.0
+
+    environment: *environment
+
+  - &packages_install
+    run:
+      name: Install packages
+      command: yarn install --freeze-lockfile
+
+  - &packages_restore
+    restore_cache:
+      name: Restore node_modules from cache
+      keys:
+        - v1-node-{{ .Branch }}-{{ checksum "yarn.lock" }}
+        - v1-node-{{ .Branch }}-
+        - v1-node-
+
+  - &packages_store
+    save_cache:
+      name: Save node_modules to cache
+      key: v1-node-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      paths:
+        - ~/.cache/yarn
+
+####################
+## Configuration. ##
+####################
 
 version: 2.1
 
 jobs:
-  install:
+  setup:
     <<: *machine
 
     steps:
       - checkout
-
-      - restore_cache:
-          keys:
-            - node-modules-{{ checksum "yarn.lock" }}
-
-      - run:
-          name: Install dependencies
-          command: yarn install
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: node-modules-{{ checksum "yarn.lock" }}
-
-      - store_artifacts:
-          path: yarn-error.log
-
-      - persist_to_workspace:
-          root: ~/project
-          paths: .
+      - *packages_restore
+      - *packages_install
+      - *packages_store
 
   test_static:
     <<: *machine
 
     steps:
-      - attach_workspace:
-          at: ~/project
+      - checkout
+      - *packages_restore
+      - *packages_install
 
       - run:
-          name: Execute static test
+          name: Run static test
           command: yarn test:static
 
   test_unit:
     <<: *machine
 
     steps:
-      - attach_workspace:
-          at: ~/project
+      - checkout
+      - *packages_restore
+      - *packages_install
 
       - run:
-          name: Execute unit test
+          name: Run unit test
           command: yarn test:unit
 
   build:
     <<: *machine
 
     steps:
-      - attach_workspace:
-          at: ~/project
+      - checkout
+      - *packages_restore
+      - *packages_install
 
       - run:
-          name: Create build
-          command: yarn build
+          name: Generate build production-based
+          command: |
+            mkdir ./${PATH_PUBLIC}
+            webpack --config ./webpack/production.js
 
       - persist_to_workspace:
-          root: ~/project
+          root: *directory
           paths: .
+
+  release:
+    <<: *machine
+
+    steps:
+      - checkout
+
+      - attach_workspace:
+          at: *directory
+
+      - run:
+          name: Generate release
+          command: |
+            npm install @semantic-release/changelog @semantic-release/git -s
+            npx semantic-release
 
   deploy:
     <<: *machine
 
     steps:
-      - attach_workspace:
-          at: ~/project
+      - checkout
 
-      - add_ssh_keys:
-          fingerprints:
-            - ${FINGERPRINT}
+      - attach_workspace:
+          at: *directory
+
+      - *packages_restore
+      - *packages_install
 
       - run:
-          name: Push to GitHub Pages
-          command: yarn deploy
-
-      - store_artifacts:
-          path: yarn-error.log
+          name: Publish to host
+          command: |
+            echo "www.frontinsampa.com.br" >> ./${PATH_PUBLIC}/CNAME
+            npx gh-pages --branch ${GITHUB_BRANCH_PUBLIC} --dist ${PATH_PUBLIC}
 
 workflows:
   version: 2.1
 
-  process:
+  development:
     jobs:
-      - install:
+      - setup:
           filters:
             branches:
-              only: site
+              ignore:
+                - *github_branch_master
+                - *github_branch_public
 
       - test_static:
           requires:
-            - install
+            - setup
 
       - test_unit:
           requires:
-            - install
+            - setup
 
       - build:
           requires:
             - test_static
             - test_unit
 
-      # - deploy:
-      #     requires:
-      #       - build
+  production:
+    jobs:
+      - setup:
+          filters:
+            branches:
+              only: *github_branch_master
+
+      - test_static:
+          requires:
+            - setup
+
+      - test_unit:
+          requires:
+            - setup
+
+      - build:
+          requires:
+            - test_static
+            - test_unit
+
+      - release:
+          requires:
+            - build
+
+      - deploy:
+          requires:
+            - release
