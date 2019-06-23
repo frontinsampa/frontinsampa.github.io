@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/frontinsampa/frontinsampa.github.io/compare/1.0.2...1.0.3) (2019-06-23)
+
+
+### Bug Fixes
+
+* **build:** Remove consumable files from release. ([ff6ec30](https://github.com/frontinsampa/frontinsampa.github.io/commit/ff6ec30))
+
 ## [1.0.2](https://github.com/frontinsampa/frontinsampa.github.io/compare/1.0.1...1.0.2) (2019-06-23)
 
 
