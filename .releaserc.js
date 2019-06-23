@@ -1,7 +1,5 @@
 module.exports = {
-  release: {
-    branch: 'site',
-  },
+  branch: 'site',
   tagFormat: '${version}',
   plugins: [
     '@semantic-release/commit-analyzer',
