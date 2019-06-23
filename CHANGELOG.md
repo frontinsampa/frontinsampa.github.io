@@ -1,3 +1,11 @@
+## [1.0.2](https://github.com/frontinsampa/frontinsampa.github.io/compare/1.0.1...1.0.2) (2019-06-23)
+
+
+### Bug Fixes
+
+* **build:** Add public folder as consumable. ([98bece2](https://github.com/frontinsampa/frontinsampa.github.io/commit/98bece2))
+* **build:** Consumables files of release. ([010316c](https://github.com/frontinsampa/frontinsampa.github.io/commit/010316c))
+
 ## [1.0.1](https://github.com/frontinsampa/frontinsampa.github.io/compare/1.0.0...1.0.1) (2019-06-23)
 
 
