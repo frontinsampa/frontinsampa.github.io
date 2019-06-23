@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Front In Sampa 2019.",
   "scripts": {
-    "start": "sh ./scripts/start && webpack-dev-server --config ./webpack/development.js",
+    "start": "sh ./scripts/start && NODE_ENV=development webpack-dev-server --config ./webpack/development.js",
     "test:static": "eslint --config ./.eslintrc.js --ext .js src",
     "test:unit": "jest --config ./jest/config.js"
   },

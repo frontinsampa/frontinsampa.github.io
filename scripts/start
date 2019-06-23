@@ -5,7 +5,6 @@ if test -f ./.env; then
 fi
 
 echo "
-NODE_ENV=development
 PATH_PUBLIC=./public
 SERVICE_GTM=UA-99999999-9
 " >> ./.env

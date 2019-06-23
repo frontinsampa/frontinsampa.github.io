@@ -9,7 +9,6 @@ anchors:
   - &github_branch_public master
 
   - &environment
-    NODE_ENV: production
     SERVICE_GTM: UA-32925160-3
     PATH_PUBLIC: ./public
     GITHUB_BRANCH_PUBLIC: *github_branch_public
@@ -29,10 +28,12 @@ anchors:
 
     environment: *environment
 
-  - &packages_install
-    run:
-      name: Install packages
-      command: yarn
+  - &packages_store
+    save_cache:
+      name: Save node_modules to cache
+      key: v1-node-{{ arch }}-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      paths:
+        - ~/.cache/yarn
 
   - &packages_restore
     restore_cache:
@@ -42,12 +43,10 @@ anchors:
         - v1-node-{{ arch }}-{{ .Branch }}-
         - v1-node-{{ arch }}-
 
-  - &packages_store
-    save_cache:
-      name: Save node_modules to cache
-      key: v1-node-{{ arch }}-{{ .Branch }}-{{ checksum "yarn.lock" }}
-      paths:
-        - ~/.cache/yarn
+  - &packages_install
+    run:
+      name: Install packages
+      command: yarn --freeze-lockfile
 
 ####################
 ## Configuration. ##
@@ -101,7 +100,7 @@ jobs:
           name: Generate build production-based
           command: |
             mkdir ./${PATH_PUBLIC}
-            webpack --config ./webpack/production.js
+            NODE_ENV=production webpack --config ./webpack/production.js
 
       - persist_to_workspace:
           root: *directory
@@ -141,7 +140,7 @@ jobs:
             npx gh-pages --branch ${GITHUB_BRANCH_PUBLIC} --dist ${PATH_PUBLIC}
 
 workflows:
-  version: 2.1
+  version: 2
 
   development:
     jobs:
