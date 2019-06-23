@@ -14,7 +14,8 @@ module.exports = {
         assets: [
           'CHANGELOG.md',
           'README.md',
-          [['public', '!CNAME']],
+          'public',
+          '!CNAME',
         ],
         releasedLabels: ['pr: released'],
       },
