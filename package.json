@@ -4,14 +4,6 @@
   "description": "Front In Sampa 2019.",
   "author": "Keit Oliveira <keitoliveira@outlook.com>",
   "license": "MIT",
-  "release": {
-    "branch": "site"
-  },
-  "files": [
-    "public/**",
-    "CHANGELOG.md",
-    "README.md"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/frontinsampa/frontinsampa.github.io.git"

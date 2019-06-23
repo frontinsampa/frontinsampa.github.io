@@ -1,4 +1,7 @@
 module.exports = {
+  release: {
+    branch: 'site',
+  },
   tagFormat: '${version}',
   plugins: [
     '@semantic-release/commit-analyzer',
@@ -7,6 +10,12 @@ module.exports = {
       '@semantic-release/changelog', {
         changelogFile: 'CHANGELOG.md',
       }
+    ],
+    [
+      '@semantic-release/npm', {
+        npmPublish: false,
+        tarballDir: false,
+      },
     ],
     [
       '@semantic-release/github', {

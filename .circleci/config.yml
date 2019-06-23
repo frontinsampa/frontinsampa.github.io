@@ -168,6 +168,8 @@ workflows:
           filters:
             branches:
               only: *github_branch_master
+              # If this works, sorry.
+              ignore: *github_branch_public
 
       - test_static:
           requires:
