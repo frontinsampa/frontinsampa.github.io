@@ -38,14 +38,14 @@ anchors:
     restore_cache:
       name: Restore node_modules from cache
       keys:
-        - v1-node-{{ .Branch }}-{{ checksum "yarn.lock" }}
-        - v1-node-{{ .Branch }}-
-        - v1-node-
+        - v1-node-{{ arch }}-{{ .Branch }}-{{ checksum "yarn.lock" }}
+        - v1-node-{{ arch }}-{{ .Branch }}-
+        - v1-node-{{ arch }}-
 
   - &packages_store
     save_cache:
       name: Save node_modules to cache
-      key: v1-node-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      key: v1-node-{{ arch }}-{{ .Branch }}-{{ checksum "yarn.lock" }}
       paths:
         - ~/.cache/yarn
 
