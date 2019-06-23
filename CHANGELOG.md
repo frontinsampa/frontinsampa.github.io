@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/frontinsampa/frontinsampa.github.io/compare/1.0.0...1.0.1) (2019-06-23)
+
+
+### Bug Fixes
+
+* **build:** Change assets glob for release. ([5f36e9d](https://github.com/frontinsampa/frontinsampa.github.io/commit/5f36e9d))
+
 # 1.0.0 (2019-06-23)
 
 
