@@ -11,12 +11,6 @@ module.exports = {
     ],
     [
       '@semantic-release/github', {
-        assets: [
-          'CHANGELOG.md',
-          'README.md',
-          'public',
-          '!CNAME',
-        ],
         releasedLabels: ['pr: released'],
       },
     ],
