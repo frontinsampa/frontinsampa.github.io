@@ -15,17 +15,6 @@ import SpotBar from '../../../components/SpotBar';
 
 const SPEAKERS_LIST = [
   {
-    name: 'Marina Limeira',
-    occupation: 'Software Engineer',
-    description: 'Natural de Alagoas, é engenheira no Nubank, contribuiu para projetos da Mozilla Brasil e organizou edições do Rails Girls.',
-    photo: '/assets/images/speaker-marina-limeira.png',
-    social: {
-      twitter: 'https://twitter.com/marinalimeira_',
-      github: 'https://github.com/marinalimeira',
-      personal: 'http://www.marinalimeira.com',
-    },
-  },
-  {
     name: 'Hugo Bessa',
     occupation: 'Desenvolvedor Front-End',
     description: 'Desenvolvedor Front-End com foco em simplicidade.',
@@ -100,6 +89,27 @@ const SPEAKERS_LIST = [
       twitter: 'https://twitter.com/larimaza',
       github: 'https://github.com/larimaza',
       personal: 'https://medium.com/@larimaza',
+    },
+  },
+  {
+    name: 'Vitor Mendrone',
+    occupation: 'Senior Software Engineer',
+    description: 'Desenvolvedor de software na Work & Co e administrador da organização Front-end Brasil.',
+    photo: '/assets/images/speaker-vitor-mendrone.png',
+    social: {
+      twitter: 'https://twitter.com/vhmendrone',
+      github: 'https://github.com/mendrone',
+    },
+  },
+  {
+    name: 'Raphael Amorim',
+    occupation: 'Software Developer Engineer',
+    description: 'Software Developer Engineer na GoDaddy, autor do React-TV e mantenedor do jquery-color pela JS foundation. Trabalhou em empresas como Globo.com e Videolog.',
+    photo: '/assets/images/speaker-raphael-amorim.png',
+    social: {
+      twitter: 'https://twitter.com/raphamorims',
+      github: 'https://github.com/raphamorim',
+      personal: 'https://raphamorim.io',
     },
   },
 ];
