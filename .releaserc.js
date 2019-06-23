@@ -14,7 +14,7 @@ module.exports = {
           'CHANGELOG.md',
           'README.md',
           'public/**'
-        ]
+        ],
         releasedLabels: ['pr: released'],
       },
     ],
