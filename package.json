@@ -2,14 +2,30 @@
   "name": "@frontinsampa/front-in-sampa.github.io",
   "version": "1.0.0",
   "description": "Front In Sampa 2019.",
+  "author": "Keit Oliveira <keitoliveira@outlook.com>",
+  "license": "MIT",
+  "release": {
+    "branch": "site"
+  },
+  "files": [
+    "public/**",
+    "CHANGELOG.md",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frontinsampa/frontinsampa.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/frontinsampa/frontinsampa.github.io/issues"
+  },
+  "homepage": "https://github.com/frontinsampa/frontinsampa.github.io#readme",
   "scripts": {
     "start": "sh ./scripts/start && NODE_ENV=development webpack-dev-server --config ./webpack/development.js",
     "build": "sh ./scripts/build && NODE_ENV=production webpack --config ./webpack/production.js",
     "test:static": "eslint --config ./.eslintrc.js --ext .js src",
     "test:unit": "jest --config ./jest/config.js"
   },
-  "author": "Keit Oliveira <keitoliveira@outlook.com>",
-  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.4.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
