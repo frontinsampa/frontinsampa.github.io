@@ -93,14 +93,12 @@ jobs:
 
     steps:
       - checkout
-      - *packages_restore
-      - *packages_install
 
       - run:
           name: Generate build production-based
           command: |
             mkdir ./${PATH_PUBLIC}
-            NODE_ENV=production webpack --config ./webpack/production.js
+            NODE_ENV=production npx webpack --config ./webpack/production.js
 
       - persist_to_workspace:
           root: *directory
