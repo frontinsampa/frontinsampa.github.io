@@ -32,7 +32,7 @@ anchors:
   - &packages_install
     run:
       name: Install packages
-      command: yarn install --freeze-lockfile
+      command: yarn
 
   - &packages_restore
     restore_cache:
