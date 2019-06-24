@@ -1,3 +1,4 @@
+/* eslint-disable */
 import uuid from 'uuid/v4';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -16,10 +17,10 @@ const Image = ({
     /**
       * For decorative images like icons, illustrations and others.
       */
-    <img src={src} srcSet={`${src} 2x`} alt="" role="presentation" width={width} height={height} />
+    <img src={src} alt="" role="presentation" width={width} height={height} />
   ) : (
     <React.Fragment>
-      <img src={src} srcSet={`${src} 2x`} alt={alt} aria-describedby={id} width={width} height={height} />
+      <img src={src} alt={alt} aria-describedby={id} width={width} height={height} />
 
       <span id={id}>
         { a11y.description }

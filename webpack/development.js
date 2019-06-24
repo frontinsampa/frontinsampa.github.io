@@ -49,5 +49,5 @@ module.exports = merge.smart(commons, {
     historyApiFallback: true,
     hot: true,
   },
-  devtool: 'eval',
+  devtool: 'source-map',
 });

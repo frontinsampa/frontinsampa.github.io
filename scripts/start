@@ -5,6 +5,9 @@ if test -f ./.env; then
 fi
 
 echo "
+NODE_ENV=development
 PATH_PUBLIC=./public
-SERVICE_GTM=UA-99999999-9
+GOOGLE_UA=UA-99999999-9
+PRISMIC_API=https://frontinsampa.cdn.prismic.io/api/v2
+PRISMIC_TOKEN=
 " >> ./.env

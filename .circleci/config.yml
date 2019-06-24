@@ -9,9 +9,11 @@ anchors:
   - &github_branch_public master
 
   - &environment
-    SERVICE_GTM: UA-32925160-3
+    GOOGLE_UA: UA-32925160-3
     PATH_PUBLIC: ./public
     GITHUB_BRANCH_PUBLIC: *github_branch_public
+    PRISMIC_API: https://frontinsampa.cdn.prismic.io/api/v2
+    PRISMIC_TOKEN:
 
     # GitHub variables required by @semantic-release/git.
     # https://github.com/semantic-release/git#environment-variables
