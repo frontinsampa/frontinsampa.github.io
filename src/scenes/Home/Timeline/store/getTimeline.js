@@ -4,12 +4,12 @@ import { SET_TIMELINE } from '.';
 
 export default () => async (dispatch) => {
   const response = await getDocument('timeline');
-  const content = response.map(({ data }) => ({ ...data }));
+  const [page] = response.map(({ data }) => ({ ...data }));
 
   dispatch({
     type: SET_TIMELINE,
     data: {
-      content,
+      page,
     },
   });
 };

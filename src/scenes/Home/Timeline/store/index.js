@@ -1,11 +1,11 @@
-import deepmerge from 'deepmerge';
-
 export const SET_TIMELINE = 'SET_TIMELINE';
-export const SET_TIMELINE_SPOT = 'SET_TIMELINE_SPOT';
 
 const initialState = {
-  content: [],
-  talks: [],
+  page: {
+    title: null,
+    content: null,
+    body: [],
+  },
 };
 
 export default (state = initialState, action) => {
@@ -14,12 +14,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         ...action.data,
-      };
-
-    case SET_TIMELINE_SPOT:
-      return {
-        ...state,
-        content: deepmerge(state.content, [{ body: action.data }]),
       };
 
     default:
