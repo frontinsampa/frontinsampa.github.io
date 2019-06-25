@@ -6,6 +6,14 @@ module.exports = {
     browser: true,
     'jest/globals': true,
   },
+  globals: {
+    /**
+     * @todo Get globals from Webpack.
+     */
+    PRISMIC_API: true,
+    PRISMIC_TOKEN: true,
+    GOOGLE_UA: true,
+  },
   rules: {
     'max-len': 0,
     'no-console': 0,
@@ -23,6 +31,7 @@ module.exports = {
     'react/jsx-closing-bracket-location': 0,
     'no-param-reassign': 0,
     'no-shadow': 0,
+    camelcase: 0,
   },
   overrides: [
     {

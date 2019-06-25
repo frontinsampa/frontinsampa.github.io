@@ -6,7 +6,6 @@ exports[`Components: <Image /> With \`presentation\` as \`true\`. Create a snaps
   height="auto"
   role="presentation"
   src="/path/to/image.png"
-  srcSet="/path/to/image.png 2x"
   width="auto"
 />
 `;
@@ -18,7 +17,6 @@ exports[`Components: <Image /> With \`presentation\` props as \`false\`. Create 
     aria-describedby="string"
     height="auto"
     src="/path/to/image.png"
-    srcSet="/path/to/image.png 2x"
     width="auto"
   />
   <span

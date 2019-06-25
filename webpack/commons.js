@@ -10,14 +10,19 @@ dotenv.config();
 const {
   NODE_ENV,
   PATH_PUBLIC,
-  SERVICE_GTM,
+  GOOGLE_UA,
+  PRISMIC_API,
+  PRISMIC_TOKEN,
 } = process.env;
 
-const ENVIROMENT_PUBLIC = { SERVICE_GTM };
-
-const environment = Object.keys(ENVIROMENT_PUBLIC).reduce((env, key) => ({
-  [key]: JSON.stringify(ENVIROMENT_PUBLIC[key]),
-}), {});
+/**
+ * Public environment.
+ */
+const environment = {
+  GOOGLE_UA,
+  PRISMIC_API,
+  PRISMIC_TOKEN,
+};
 
 /**
  * Conditional configuration exception by environment to
@@ -44,6 +49,7 @@ module.exports = {
               importLoaders: 1,
             },
           },
+          'postcss-loader',
         ],
       },
       {
@@ -74,7 +80,10 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.DefinePlugin(environment),
+    new webpack.DefinePlugin(Object.keys(environment).reduce((env, key) => ({
+      ...env,
+      [key]: JSON.stringify(environment[key]),
+    }), {})),
     new HtmlPlugin({
       template: './src/index.html',
     }),
