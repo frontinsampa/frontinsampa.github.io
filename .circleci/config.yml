@@ -13,7 +13,7 @@ anchors:
     PATH_PUBLIC: ./public
     GITHUB_BRANCH_PUBLIC: *github_branch_public
     PRISMIC_API: https://frontinsampa.cdn.prismic.io/api/v2
-    PRISMIC_TOKEN:
+    PRISMIC_TOKEN: ${PRISMIC_TOKEN}
 
     # GitHub variables required by @semantic-release/git.
     # https://github.com/semantic-release/git#environment-variables
