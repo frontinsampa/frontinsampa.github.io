@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/frontinsampa/frontinsampa.github.io/compare/1.0.3...1.1.0) (2019-06-25)
+
+
+### Features
+
+* Add Timeline and integration with Prismic.io ([#3](https://github.com/frontinsampa/frontinsampa.github.io/issues/3)) ([9af0777](https://github.com/frontinsampa/frontinsampa.github.io/commit/9af0777))
+
 ## [1.0.3](https://github.com/frontinsampa/frontinsampa.github.io/compare/1.0.2...1.0.3) (2019-06-23)
 
 
