@@ -26,7 +26,7 @@ const Timeline = ({ dispatch, page }) => {
   }, [loaded]);
 
   return loaded && (
-    <Section>
+    <Section progress={page.body.length}>
       {
         page && (
           <React.Fragment>

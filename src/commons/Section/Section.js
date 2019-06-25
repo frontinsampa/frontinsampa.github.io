@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import stringToFunctionStyle from '../../utils/stringToFunctionStyle';
 
@@ -12,26 +13,38 @@ import { withStyles } from '../../styles';
 
 import styles from './styles';
 
+/**
+ * @todo Creates Progress component.
+ */
 const Section = ({
   classes,
   component,
   children,
   title,
   collapsed,
+  progress,
 }) => (
   <Container maxWidth={collapsed ? 'xl' : 'lg'} className={classes.section}>
     <Grid component={component} container className={classes.sectionContainer} justify="center" alignItems="center">
-      <Grid item xs={collapsed ? 'auto' : 10}>
-        {
-          title && (
-            <React.Fragment>
-              <Typed component="h2" className={classes.sectionTitle} variant="h5" content={[stringToFunctionStyle(title)]} a11y={{ content: title }} />
-            </React.Fragment>
-          )
-        }
+      {
+        progress ? (
+          <Grid item xs={collapsed ? 'auto' : 10}>
+            {
+              title && (
+                <React.Fragment>
+                  <Typed component="h2" className={classes.sectionTitle} variant="h5" content={[stringToFunctionStyle(title)]} a11y={{ content: title }} />
+                </React.Fragment>
+              )
+            }
 
-        {children}
-      </Grid>
+            {children}
+          </Grid>
+        ) : (
+          <Grid item>
+            <CircularProgress />
+          </Grid>
+        )
+      }
     </Grid>
   </Container>
 );
@@ -42,12 +55,14 @@ Section.propTypes = {
   collapsed: PropTypes.bool,
   title: PropTypes.string,
   component: PropTypes.string,
+  progress: PropTypes.bool,
 };
 
 Section.defaultProps = {
   collapsed: false,
   title: null,
   component: 'section',
+  progress: true,
 };
 
 export default withStyles(styles)(Section);

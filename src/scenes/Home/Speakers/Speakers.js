@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Prismic from 'prismic-reactjs';
+import orderBy from 'lodash/orderBy';
 
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -26,11 +27,11 @@ const Speakers = ({ dispatch, content }) => {
     setLoading(true);
   }, [loaded]);
 
-  return loaded && (
-    <Section collapsed>
+  return (
+    <Section collapsed progress={content.length}>
       <Grid container>
         {
-          content.map(({
+          orderBy(content, ['name'], ['asc']).map(({
             name,
             occupation,
             description,
