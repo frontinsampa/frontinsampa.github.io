@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/frontinsampa/frontinsampa.github.io/compare/1.1.1...1.1.2) (2019-06-25)
+
+
+### Bug Fixes
+
+* Add `PRISMIC_TOKEN` to Circle Ci settings. ([fe4b766](https://github.com/frontinsampa/frontinsampa.github.io/commit/fe4b766))
+
 ## [1.1.1](https://github.com/frontinsampa/frontinsampa.github.io/compare/1.1.0...1.1.1) (2019-06-25)
 
 
