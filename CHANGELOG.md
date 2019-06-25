@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/frontinsampa/frontinsampa.github.io/compare/1.1.3...1.1.4) (2019-06-25)
+
+
+### Bug Fixes
+
+* Remove dayjs and add vanilla time formatter ([4ebf8e4](https://github.com/frontinsampa/frontinsampa.github.io/commit/4ebf8e4))
+
 ## [1.1.3](https://github.com/frontinsampa/frontinsampa.github.io/compare/1.1.2...1.1.3) (2019-06-25)
 
 
