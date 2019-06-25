@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/frontinsampa/frontinsampa.github.io/compare/1.1.2...1.1.3) (2019-06-25)
+
+
+### Bug Fixes
+
+* Add global context to Circle Ci settings. ([ac4b33c](https://github.com/frontinsampa/frontinsampa.github.io/commit/ac4b33c))
+
 ## [1.1.2](https://github.com/frontinsampa/frontinsampa.github.io/compare/1.1.1...1.1.2) (2019-06-25)
 
 
