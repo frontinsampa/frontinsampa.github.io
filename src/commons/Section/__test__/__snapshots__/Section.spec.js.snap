@@ -11,6 +11,7 @@ exports[`Components: <Section /> With \`title\` prop as \`null\`. Create a snaps
   }
   collapsed={false}
   component="section"
+  progress={true}
   title={null}
 >
   Lorem ipsum dolor sit amet consectetur adipisicing elit.
