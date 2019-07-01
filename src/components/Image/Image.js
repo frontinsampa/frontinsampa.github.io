@@ -1,4 +1,3 @@
-/* eslint-disable */
 import uuid from 'uuid/v4';
 import React from 'react';
 import PropTypes from 'prop-types';

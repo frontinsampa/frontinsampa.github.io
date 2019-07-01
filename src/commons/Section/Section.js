@@ -55,7 +55,10 @@ Section.propTypes = {
   collapsed: PropTypes.bool,
   title: PropTypes.string,
   component: PropTypes.string,
-  progress: PropTypes.bool,
+  progress: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.number,
+  ]),
 };
 
 Section.defaultProps = {

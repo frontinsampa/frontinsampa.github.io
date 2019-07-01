@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import isEmpty from 'lodash/isEmpty';
@@ -7,6 +7,7 @@ import TypedJs from 'typed.js';
 import Typography from '@material-ui/core/Typography';
 
 const Typed = ({ content, a11y, ...props }) => {
+  const [mounted] = useState(true);
   const $content = useRef();
 
   useEffect(() => {
@@ -19,7 +20,7 @@ const Typed = ({ content, a11y, ...props }) => {
       typeSpeed: 40,
       backSpeed: 20,
     });
-  });
+  }, [mounted]);
 
   return (
     <React.Fragment>

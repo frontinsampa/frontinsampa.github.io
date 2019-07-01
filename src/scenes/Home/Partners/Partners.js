@@ -1,44 +1,30 @@
-import uuid from 'uuid/v4';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-import Grid from '@material-ui/core/Grid';
+import Showcase from '../../../commons/Showcase';
 
-import Section from '../../../commons/Section';
+import getPartners from './store/getPartners';
 
-/**
- * @todo Move `PARTNERS_LIST` to configuration file.
- */
-const PARTNERS_LIST = [
-  {
-    name: 'Lorem Ipsum',
-    logo: 'https://via.placeholder.com/150x100&text=PARTNERS',
-  },
-  {
-    name: 'Lorem Ipsum',
-    logo: 'https://via.placeholder.com/150x100&text=PARTNERS',
-  },
-  {
-    name: 'Lorem Ipsum',
-    logo: 'https://via.placeholder.com/150x100&text=PARTNERS',
-  },
-  {
-    name: 'Lorem Ipsum',
-    logo: 'https://via.placeholder.com/150x100&text=PARTNERS',
-  },
-];
+const Partners = ({ dispatch, page, available }) => {
+  const [loaded, setLoading] = useState(false);
 
-const Partners = () => (
-  <Section title="Apoiadores">
-    <Grid container>
-      {
-        PARTNERS_LIST.map(({ name, logo }) => (
-          <Grid item xs={12} md={6} lg={4} key={uuid()}>
-            <img src={logo} alt={name} />
-          </Grid>
-        ))
-      }
-    </Grid>
-  </Section>
-);
+  useEffect(() => {
+    if (!loaded) {
+      dispatch(getPartners());
+      setLoading(true);
+    }
+  });
 
-export default Partners;
+  return available && (
+    <Showcase titleColor="energy" {...page} />
+  );
+};
+
+Partners.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  page: PropTypes.object.isRequired,
+  available: PropTypes.bool.isRequired,
+};
+
+export default connect(({ partners }) => ({ ...partners }))(Partners);

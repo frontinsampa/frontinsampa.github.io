@@ -23,9 +23,11 @@ const Speakers = ({ dispatch, content }) => {
   const [loaded, setLoading] = useState(false);
 
   useEffect(() => {
-    dispatch(getSpeakers());
-    setLoading(true);
-  }, [loaded]);
+    if (!loaded) {
+      dispatch(getSpeakers());
+      setLoading(true);
+    }
+  });
 
   return (
     <Section collapsed progress={content.length}>
@@ -42,7 +44,7 @@ const Speakers = ({ dispatch, content }) => {
           }) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={uuid()}>
               <Spot>
-                <Image src={photo.medium.url} presentation {...photo.medium.dimensions} />
+                <Image src={photo.medium.url} presentation alt={photo.medium.alt} {...photo.medium.dimensions} />
 
                 <SpotBar>
                   <Box marginBottom={1}>

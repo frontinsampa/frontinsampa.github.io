@@ -4,17 +4,24 @@ export default ({ palette }) => ({
     borderStyle: 'solid',
     borderWidth: 1,
     display: 'block',
-    height: 314,
     overflow: 'hidden',
     position: 'relative',
-    width: '100%',
+    background: '#1A1A1A',
+    /**
+     * @todo Improve for all sizes.
+     */
+    height: ({ height }) => height || 314,
+    width: ({ width }) => width || '100%',
 
     '& > img': {
-      height: 'auto',
       left: '50%',
       position: 'relative',
       transform: 'translateX(-50%)',
+      /**
+       * @todo Improve for all sizes.
+       */
       width: 'inherit',
+      height: 'auto',
       minHeight: '100%',
     },
   },

@@ -21,9 +21,11 @@ const Timeline = ({ dispatch, page }) => {
   const [loaded, setLoading] = useState(false);
 
   useEffect(() => {
-    dispatch(getTimeline());
-    setLoading(true);
-  }, [loaded]);
+    if (!loaded) {
+      dispatch(getTimeline());
+      setLoading(true);
+    }
+  });
 
   return loaded && (
     <Section progress={page.body.length}>
@@ -66,7 +68,7 @@ const Timeline = ({ dispatch, page }) => {
 
                       {
                         type && (
-                          <Grid container alignItems="start" spacing={1}>
+                          <Grid container alignItems="flex-start" spacing={1}>
                             <Grid item>
                               <ChatBubbleOutline />
                             </Grid>

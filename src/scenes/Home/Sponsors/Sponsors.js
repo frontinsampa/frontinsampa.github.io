@@ -1,87 +1,30 @@
-import uuid from 'uuid/v4';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-import React from 'react';
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
+import Showcase from '../../../commons/Showcase';
 
-import Section from '../../../commons/Section';
+import getSponsors from './store/getSponsors';
 
-const SPONSORS_HIGHLIGHT = [
-  {
-    name: 'Lorem Ipsum',
-    logo: 'https://via.placeholder.com/150x100&text=SPONSOR',
-  },
-  {
-    name: 'Lorem Ipsum',
-    logo: 'https://via.placeholder.com/150x100&text=SPONSOR',
-  },
-  {
-    name: 'Lorem Ipsum',
-    logo: 'https://via.placeholder.com/150x100&text=SPONSOR',
-  },
-  {
-    name: 'Lorem Ipsum',
-    logo: 'https://via.placeholder.com/150x100&text=SPONSOR',
-  },
-];
+const Sponsors = ({ dispatch, page, available }) => {
+  const [loaded, setLoading] = useState(false);
 
-const SPONSORS_DEFAULT = [
-  {
-    name: 'Lorem Ipsum',
-    logo: 'https://via.placeholder.com/100x100&text=SPONSOR',
-  },
-  {
-    name: 'Lorem Ipsum',
-    logo: 'https://via.placeholder.com/100x100&text=SPONSOR',
-  },
-  {
-    name: 'Lorem Ipsum',
-    logo: 'https://via.placeholder.com/100x100&text=SPONSOR',
-  },
-  {
-    name: 'Lorem Ipsum',
-    logo: 'https://via.placeholder.com/100x100&text=SPONSOR',
-  },
-  {
-    name: 'Lorem Ipsum',
-    logo: 'https://via.placeholder.com/100x100&text=SPONSOR',
-  },
-  {
-    name: 'Lorem Ipsum',
-    logo: 'https://via.placeholder.com/100x100&text=SPONSOR',
-  },
-  {
-    name: 'Lorem Ipsum',
-    logo: 'https://via.placeholder.com/100x100&text=SPONSOR',
-  },
-  {
-    name: 'Lorem Ipsum',
-    logo: 'https://via.placeholder.com/100x100&text=SPONSOR',
-  },
-];
+  useEffect(() => {
+    if (!loaded) {
+      dispatch(getSponsors());
+      setLoading(true);
+    }
+  });
 
-const Sponsors = () => (
-  <Section title="Patrocinadores">
-    <GridList cellHeight={150} cols={4}>
-      {
-        SPONSORS_HIGHLIGHT.map(({ name, logo }) => (
-          <GridListTile key={uuid()}>
-            <img src={logo} alt={name} />
-          </GridListTile>
-        ))
-      }
-    </GridList>
+  return available && (
+    <Showcase titleColor="ocean" {...page} />
+  );
+};
 
-    <GridList cellHeight={100} cols={8}>
-      {
-        SPONSORS_DEFAULT.map(({ name, logo }) => (
-          <GridListTile key={uuid()}>
-            <img src={logo} alt={name} />
-          </GridListTile>
-        ))
-      }
-    </GridList>
-  </Section>
-);
+Sponsors.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  page: PropTypes.object.isRequired,
+  available: PropTypes.bool.isRequired,
+};
 
-export default Sponsors;
+export default connect(({ sponsors }) => ({ ...sponsors }))(Sponsors);
