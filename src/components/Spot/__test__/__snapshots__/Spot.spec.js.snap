@@ -4,7 +4,7 @@ exports[`Components: <Spot /> Create a snapshot. 1`] = `
 <Spot
   classes={
     Object {
-      "spot": "Spot-spot-1",
+      "spot": "Spot-spot-1 Spot-spot-2",
     }
   }
 >
