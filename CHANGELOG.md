@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/frontinsampa/frontinsampa.github.io/compare/1.1.4...1.2.0) (2019-09-16)
+
+
+### Bug Fixes
+
+* **Hero:** update sales page ([d434e5c](https://github.com/frontinsampa/frontinsampa.github.io/commit/d434e5c))
+
+
+### Features
+
+* update with infos for 2020 edition ([e85e2a9](https://github.com/frontinsampa/frontinsampa.github.io/commit/e85e2a9))
+
 ## [1.1.4](https://github.com/frontinsampa/frontinsampa.github.io/compare/1.1.3...1.1.4) (2019-06-25)
 
 
