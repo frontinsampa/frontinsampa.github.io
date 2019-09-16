@@ -7,7 +7,7 @@ import { withStyles } from '../../styles';
 
 import styles from './styles';
 
-const SALES_PAGE = 'https://www.sympla.com.br/front-in-sampa-2019__413970';
+const SALES_PAGE = 'https://www.sympla.com.br/front-in-sampa-2020__592098';
 
 const Ticket = ({ children, width, height }) => {
   const otherProps = {
