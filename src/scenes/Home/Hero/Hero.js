@@ -13,7 +13,7 @@ import Typed from '../../../components/Typed';
 /**
  * @todo Move `DATE` to configuration file.
  */
-const DATE = 'Sat, 13 Jul 2019';
+const DATE = 'Sat, 18 Jul 2020';
 
 const Hero = () => (
   <Section>
@@ -21,11 +21,11 @@ const Hero = () => (
       <Grid item xs="auto" style={{ textAlign: 'center' }}>
         <Typed component="p" paragraph variant="h2" content={[
           '#saveTheDate',
-          'Front In Sampa 2019',
+          'Front In Sampa 2020',
         ]} />
 
         <Typography component="p" paragraph variant="h5" color="textSecondary">
-          13 de Julho | Centro de Convenções Rebouças, São Paulo
+          18 de Julho | Teatro Gazeta, Av. Paulista, São Paulo
         </Typography>
 
         <Box mt={5} mb={5}>
