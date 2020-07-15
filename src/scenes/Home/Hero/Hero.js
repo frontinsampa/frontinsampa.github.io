@@ -1,9 +1,11 @@
+/* eslint-disable */
 import React from 'react';
 import Countdown from 'react-countdown-now';
 
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Link from '@material-ui/core/Link';
 
 import Section from '../../../commons/Section';
 import Ticket from '../../../commons/Ticket';
@@ -25,7 +27,14 @@ const Hero = () => (
         ]} />
 
         <Typography component="p" paragraph variant="h5" color="textSecondary">
-          18 de Julho | Teatro Gazeta, Av. Paulista, São Paulo
+          18 de Julho |&nbsp;
+          <Link
+            href="/"
+            underline="none"
+            color="inherit"
+          >
+            youtube.com/frontinsampa
+          </Link>
         </Typography>
 
         <Box mt={5} mb={5}>
