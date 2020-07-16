@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react';
 import Countdown from 'react-countdown-now';
 
@@ -29,9 +28,10 @@ const Hero = () => (
         <Typography component="p" paragraph variant="h5" color="textSecondary">
           18 de Julho |&nbsp;
           <Link
-            href="/"
+            href="https://youtube.com/frontinsampa"
             underline="none"
             color="inherit"
+            target="_blank"
           >
             youtube.com/frontinsampa
           </Link>
