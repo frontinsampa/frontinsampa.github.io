@@ -71,7 +71,7 @@
     "@semantic-release/git": "^7.0.16",
     "dayjs": "^1.8.14",
     "deepmerge": "^3.3.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "prismic-javascript": "^2.0.3",
     "prismic-reactjs": "^1.0.0",
     "prop-types": "^15.7.2",
