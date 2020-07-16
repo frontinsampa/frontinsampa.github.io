@@ -1,11 +1,12 @@
+/* eslint-disable */
 import React from 'react';
 
 import Hero from './Hero';
 import About from './About';
 import Speakers from './Speakers';
 import Timeline from './Timeline';
-import Sponsors from './Sponsors';
-import Partners from './Partners';
+// import Sponsors from './Sponsors';
+// import Partners from './Partners';
 import Contact from './Contact';
 
 const Home = () => (
@@ -14,8 +15,6 @@ const Home = () => (
     <About />
     <Speakers />
     <Timeline />
-    <Sponsors />
-    <Partners />
     <Contact />
   </React.Fragment>
 );
