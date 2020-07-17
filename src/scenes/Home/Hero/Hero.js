@@ -28,7 +28,7 @@ const Hero = () => (
         <Typography component="p" paragraph variant="h5" color="textSecondary">
           18 de Julho |&nbsp;
           <Link
-            href="https://youtube.com/frontinsampa"
+            href="https://www.youtube.com/watch?v=0qtRQYS4V5A"
             underline="none"
             color="inherit"
             target="_blank"
