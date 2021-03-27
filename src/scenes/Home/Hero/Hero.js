@@ -7,14 +7,13 @@ import Box from '@material-ui/core/Box';
 import Link from '@material-ui/core/Link';
 
 import Section from '../../../commons/Section';
-import Ticket from '../../../commons/Ticket';
 
 import Typed from '../../../components/Typed';
 
 /**
  * @todo Move `DATE` to configuration file.
  */
-const DATE = 'Sat, 18 Jul 2020';
+const DATE = 'Sat, 17 Jul 2021';
 
 const Hero = () => (
   <Section>
@@ -22,19 +21,11 @@ const Hero = () => (
       <Grid item xs="auto" style={{ textAlign: 'center' }}>
         <Typed component="p" paragraph variant="h2" content={[
           '#saveTheDate',
-          'Front In Sampa 2020',
+          'Front In Sampa ON 2021',
         ]} />
 
         <Typography component="p" paragraph variant="h5" color="textSecondary">
-          18 de Julho |&nbsp;
-          <Link
-            href="https://www.youtube.com/watch?v=0qtRQYS4V5A"
-            underline="none"
-            color="inherit"
-            target="_blank"
-          >
-            youtube.com/frontinsampa
-          </Link>
+          17 de Julho
         </Typography>
 
         <Box mt={5} mb={5}>
@@ -43,9 +34,32 @@ const Hero = () => (
           </Typography>
         </Box>
 
-        <Ticket width={230}>
-          Faça sua inscrição
-        </Ticket>
+        <Typography component="p" color="secondary" variant="h4">
+          <p>
+            Ingressos em breve
+          </p>
+        </Typography>
+
+        <Typography component="div" color="textSecondary" variant="h6">
+          <div>
+            10ª edição do maior evento de desenvolvimento front-end do Brasil
+          </div>
+        </Typography>
+
+        <Typography component="div" color="textSecondary" variant="p">
+          <p>
+            Assista as edições anteriores em
+          </p>
+          <Link
+            href="https://www.youtube.com/watch?v=0qtRQYS4V5A"
+            underline="none"
+            color="primary"
+            target="_blank"
+          >
+            youtube.com/frontinsampa
+          </Link>
+        </Typography>
+
       </Grid>
     </Grid>
   </Section>
