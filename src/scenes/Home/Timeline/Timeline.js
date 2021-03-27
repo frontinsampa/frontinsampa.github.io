@@ -1,13 +1,13 @@
-import uuid from 'uuid/v4';
+// import uuid from 'uuid/v4';
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Prismic from 'prismic-reactjs';
+// import Prismic from 'prismic-reactjs';
 
-import Grid from '@material-ui/core/Grid';
+// import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import TypographyCore from '@material-ui/core/Typography';
-import ChatBubbleOutline from '@material-ui/icons/ChatBubbleOutline';
+// import TypographyCore from '@material-ui/core/Typography';
+// import ChatBubbleOutline from '@material-ui/icons/ChatBubbleOutline';
 
 import Typography from '../../../components/Typography';
 
@@ -15,7 +15,7 @@ import Section from '../../../commons/Section';
 
 import getTimeline from './store/getTimeline';
 
-import transformToScheduleHour from '../../../utils/transformToScheduleHour';
+// import transformToScheduleHour from '../../../utils/transformToScheduleHour';
 
 const Timeline = ({ dispatch, page }) => {
   const [loaded, setLoading] = useState(false);
@@ -34,11 +34,15 @@ const Timeline = ({ dispatch, page }) => {
           <React.Fragment>
             <Box mb={6}>
               <Typography component="div" variant="h4">
-                { Prismic.RichText.render(page.content) }
+                <p>Talks, Workshops e Interação</p>
+                {/* { Prismic.RichText.render(page.content) } */}
+              </Typography>
+              <Typography component="div" variant="h5">
+                Um Front In Sampa como você nunca viu
               </Typography>
             </Box>
 
-            <Grid container>
+            {/* <Grid container>
               {
                 page.body.filter(({ slice_type }) => slice_type === 'timeline').map(({ items }) => items.map(({
                   title,
@@ -93,7 +97,7 @@ const Timeline = ({ dispatch, page }) => {
                   </Grid>
                 )))
               }
-            </Grid>
+            </Grid> */}
           </React.Fragment>
         )
       }
