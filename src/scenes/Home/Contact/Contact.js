@@ -78,7 +78,7 @@ const Contact = () => (
 
     <Box mb={4}>
       <Typography component="p" paragraph variant="h3">
-        Quer patrocinar, tirar dúvidas ou mandar sugestões?
+        Quer tirar dúvidas ou mandar sugestões?
       </Typography>
     </Box>
 
@@ -88,11 +88,40 @@ const Contact = () => (
          * @todo Solve word-wrap problem.
          */
       }
-      <Typography component="p" paragraph variant="h4" style={{ wordWrap: 'break-word' }}>
-        <Link href="mailto:contato@frontinsampa.com.br" aria-label="Abrir e-mail com destinatário contato@frontinsampa.com.br" color="inherit" underline="none">
+      <Typography component="p" paragraph style={{ wordWrap: 'break-word' }}>
+        <Link href="mailto:contato@frontinsampa.com.br" aria-label="Abrir e-mail com destinatário contato@frontinsampa.com.br" underline="none">
           contato@frontinsampa.com.br
         </Link>
       </Typography>
+      <Typography component="p" paragraph style={{ wordWrap: 'break-word' }}>
+        <Link href="mailto:comunidade@frontinsampa.com.br" aria-label="Abrir e-mail com destinatário comunidade@frontinsampa.com.br" underline="none">
+          comunidade@frontinsampa.com.br
+        </Link>
+      </Typography>
+    </Box>
+    <Box mb={4}>
+      <Typography component="p" paragraph variant="h3">
+        Que tal palestrar?
+      </Typography>
+      <p><br />Envie sua proposta de talk:<br /><br />
+        <Typography component="p" paragraph variant="h4" style={{ wordWrap: 'break-word' }}>
+          <Link href="https://forms.gle/qP8KMKH5KSvc8CbW7" aria-label="Abrir link https://forms.gle/qP8KMKH5KSvc8CbW7">
+            Call For Papers
+          </Link>
+        </Typography>
+      </p>
+    </Box>
+    <Box mb={4}>
+      <Typography component="p" paragraph variant="h3">
+        Patrocine
+      </Typography>
+      <p><br />Acesse o nosso Media Kit:<br /><br />
+        <Typography component="p" paragraph variant="h4" style={{ wordWrap: 'break-word' }}>
+          <Link href="https://drive.google.com/file/d/1n8XW5U-lJuxSI56oMfT9D32a-QdZQCmF/view" aria-label="Abrir link https://drive.google.com/file/d/1n8XW5U-lJuxSI56oMfT9D32a-QdZQCmF/view">
+            FSPON21 Media Kit
+          </Link>
+        </Typography>
+      </p>
     </Box>
   </Section>
 );

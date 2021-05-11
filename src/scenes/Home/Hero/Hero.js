@@ -42,7 +42,7 @@ const Hero = () => (
 
         <Typography component="div" color="textSecondary" variant="h6">
           <div>
-            10ª edição do maior evento de desenvolvimento front-end do Brasil
+            Comemore 10 anos de Front In Sampa e sintonize um dia inteiro de programação gratuita com líderes, influenciadoras, comunidades e empresas reunidas online para aprendizado, networking e entretenimento no YouTube e no Zoom.
           </div>
         </Typography>
 
