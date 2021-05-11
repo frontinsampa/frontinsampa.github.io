@@ -10,7 +10,8 @@ const About = () => (
   <Section title="O evento" titleCustomColor="sunrise">
     <Box mb={6}>
       <Typography component="p" paragraph variant="h5">
-        O <Box component="strong" color="sunrise" fontWeight="normal">Front In Sampa é o tradicional evento de Front-End</Box> sediado em São Paulo com 8 edições de sucesso desde 2012. Com o posto de maior do Brasil no seguimento e querido pelo público da área, trazemos conteúdo de alta qualidade aliado a uma experiência incrível do início ao fim, sempre pensando na inclusão, no aprendizado e na diversão.
+        <Box component="strong" color="sunrise" fontWeight="normal">10 anos transformando a comunidade Front-End</Box>
+        <p>O Front In Sampa é um dos maiores eventos de tecnologia front end do Brasil. Criado em 2012, tem como missão oferecer experiências para a comunidade de desenvolvedoras através de palestras e atividades, levando conteúdo de qualidade e transformação social entre pessoas e organizações.</p>
       </Typography>
     </Box>
   </Section>
