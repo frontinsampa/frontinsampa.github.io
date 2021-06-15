@@ -51,13 +51,13 @@ const Hero = () => (
           <img src={Youtube} alt="logo youtube" style={{ width: 200 }} />
         </Box>
         <Link
-          href="https://www.youtube.com/watch?v=0qtRQYS4V5A"
+          href="/youtube"
           underline="none"
           variant="h4"
           color="secondary"
           target="_blank"
         >
-          youtube.com/frontinsampa
+          frontinsampa.com.br/youtube
         </Link>
 
       </Grid>

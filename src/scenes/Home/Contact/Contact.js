@@ -45,7 +45,7 @@ const SOCIAL_MEDIA = [
     },
   },
   {
-    href: 'https://www.youtube.com/frontinsampa',
+    href: '/youtube',
     icon: {
       src: '/assets/images/social-media-youtube.svg',
       fallback: '/assets/images/social-media-youtube.png',
@@ -130,7 +130,7 @@ const Contact = () => (
         variant="h5"
         target="_blank"
       >
-        youtube.com/frontinsampa
+        frontinsampa.com.br/youtube
       </Link>
     </Typography>
   </Section>
