@@ -95,6 +95,10 @@ module.exports = {
       {
         from: './src/favicon.ico',
       },
+      {
+        context: './static',
+        from: './**/*',
+      },
     ]),
   ],
 };
