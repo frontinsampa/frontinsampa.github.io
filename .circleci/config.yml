@@ -135,7 +135,6 @@ jobs:
       - run:
           name: Publish to host
           command: |
-            echo "www.frontinsampa.com.br" >> ./${PATH_PUBLIC}/CNAME
             npx gh-pages --branch ${GITHUB_BRANCH_PUBLIC} --dist ${PATH_PUBLIC}
 
 workflows:
