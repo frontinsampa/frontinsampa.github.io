@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import Prismic from 'prismic-reactjs';
 
-import { getSponsorshipByYear, getSponsorByIds } from '../../../services/content';
 
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import Box from '@material-ui/core/Box';
+import { getSponsorshipByYear, getSponsorByIds } from '../../../services/content';
 
 import Image from '../../../components/Image';
 import Spot from '../../../components/Spot';
@@ -25,7 +24,7 @@ async function getPage() {
       sponsorship: sponsorshipSlice,
     },
   };
-};
+}
 
 async function getSponsorship(data) {
   const slice = data
@@ -42,7 +41,7 @@ async function getSponsorship(data) {
     const sponsors = ids
       .map((id) => {
         const sponsor = sponsorsPages
-          .find((page) => page.id == id)
+          .find(page => page.id === id)
           .data;
 
         const image = filterSponsorImageByQuota(quota, sponsor.image);
@@ -57,7 +56,7 @@ async function getSponsorship(data) {
   });
 
   return body;
-};
+}
 
 function filterSponsorImageByQuota(quota, image) {
   if (['specialist', 'senior'].includes(quota.toLowerCase())) {
@@ -78,7 +77,7 @@ function filterSponsorImageByQuota(quota, image) {
   }[quota.toLowerCase()];
 
   return image[size] || image;
-};
+}
 
 const Sponsors = () => {
   const [page, setPage] = useState({
@@ -95,8 +94,7 @@ const Sponsors = () => {
         const data = await getPage();
 
         setPage(data);
-      }
-      finally {
+      } finally {
         setLoading(false);
       }
     })();
@@ -110,32 +108,30 @@ const Sponsors = () => {
       progress={!loading}
     >
       {
-        page.body.sponsorship && page.body.sponsorship.map(({ quota, sponsors }) => (
+        page.body.sponsorship && page.body.sponsorship.map(({ sponsors }) => (
           <Grid container spacing={2}>
             {
-              sponsors.map((sponsor) => {
-                return (
-                  <Grid item key={sponsor.id}>
-                    <Box mb={1}>
-                      <Spot {...sponsor.image.dimensions}>
-                        <Link
-                          href={sponsor.website.url}
-                          target={sponsor.website.target}
-                          rel="noopener"
-                          underline="none"
+              sponsors.map(sponsor => (
+                <Grid item key={sponsor.id}>
+                  <Box mb={1}>
+                    <Spot {...sponsor.image.dimensions}>
+                      <Link
+                        href={sponsor.website.url}
+                        target={sponsor.website.target}
+                        rel="noopener"
+                        underline="none"
                         >
-                          <Image
-                            presentation
-                            src={sponsor.image.url}
-                            alt={sponsor.image.alt}
-                            {...sponsor.image.dimensions}
+                        <Image
+                          presentation
+                          src={sponsor.image.url}
+                          alt={sponsor.image.alt}
+                          {...sponsor.image.dimensions}
                           />
-                        </Link>
-                      </Spot>
-                    </Box>
-                  </Grid>
-                )
-              })
+                      </Link>
+                    </Spot>
+                  </Box>
+                </Grid>
+              ))
             }
           </Grid>
         ))
