@@ -29,8 +29,11 @@ const Speakers = ({ dispatch, content }) => {
     }
   });
 
-  return (
-    <Section collapsed progress={content.length}>
+  return content.length > 0 && (
+    <Section
+      collapsed
+      progress={content.length}
+    >
       <Grid container>
         {
           orderBy(content, ['name'], ['asc']).map(({
