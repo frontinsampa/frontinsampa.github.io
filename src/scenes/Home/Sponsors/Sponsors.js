@@ -6,84 +6,144 @@ import { getSponsorshipByYear, getSponsorByIds } from '../../../services/content
 
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
+import Box from '@material-ui/core/Box';
 
 import Image from '../../../components/Image';
 import Spot from '../../../components/Spot';
 
 import Section from '../../../commons/Section';
 
-const Sponsors = () => {
-  const [title, setTitle] = useState();
-  const [sponsors, setSponsors] = useState([]);
+async function getPage() {
+  const [response] = await getSponsorshipByYear();
+  const { title, body } = response.data;
 
-  const getSponsors = async () => {
-    const [response] = await getSponsorshipByYear();
-    const { title, body } = response.data;
+  const sponsorshipSlice = await getSponsorship(body);
 
-    const [sliceClients] = body.filter(({ slice_type }) => slice_type === 'clients');
-    const sponsorsList = sliceClients.items.map(({ client: { id }, spotlight }) => ({ id, spotlight }));
-    const sponsorsIds = sponsorsList.map(({ id }) => id);
-
-    const sponsorsPages = await getSponsorByIds(sponsorsIds);
-
-    const sponsorsDetails = sponsorsPages.map(({ data: body, ...page }) => {
-      const { spotlight } = sponsorsList.find(({ id }) => id === page.id);
-
-      return { ...body, spotlight };
-    });
-
-    return { title, sponsors: sponsorsDetails };
+  return {
+    title,
+    body: {
+      sponsorship: sponsorshipSlice,
+    },
   };
+};
+
+async function getSponsorship(data) {
+  const slice = data
+    .filter(({ slice_type }) => slice_type === 'sponsorship')
+    .map(({ primary: { sponsorship_quota: quota }, items }) => ({
+      quota,
+      sponsors: items.map(({ sponsor: { id } }) => id),
+    }));
+
+  const sponsorsIds = slice.flatMap(({ sponsors }) => sponsors);
+  const sponsorsPages = await getSponsorByIds(sponsorsIds);
+
+  const body = slice.map(({ quota, sponsors: ids }) => {
+    const sponsors = ids
+      .map((id) => {
+        const sponsor = sponsorsPages
+          .find((page) => page.id == id)
+          .data;
+
+        const image = filterSponsorImageByQuota(quota, sponsor.image);
+
+        return { ...sponsor, image };
+      });
+
+    return {
+      quota,
+      sponsors,
+    };
+  });
+
+  return body;
+};
+
+function filterSponsorImageByQuota(quota, image) {
+  if (['specialist', 'senior'].includes(quota.toLowerCase())) {
+    const { alt, dimensions, url } = image;
+    return {
+      alt,
+      dimensions,
+      url,
+    };
+  }
+
+  const size = {
+    /**
+     * TODO: update image dimensions
+     */
+    plena: 'small',
+    junior: 'small',
+  }[quota.toLowerCase()];
+
+  return image[size] || image;
+};
+
+const Sponsors = () => {
+  const [page, setPage] = useState({
+    title: null,
+    body: {},
+  });
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     (async () => {
-      const {
-        title,
-        sponsors: sponsorsDetails,
-      } = await getSponsors();
+      try {
+        setLoading(true);
 
-      setTitle(title);
-      setSponsors(sponsorsDetails);
+        const data = await getPage();
+
+        setPage(data);
+      }
+      finally {
+        setLoading(false);
+      }
     })();
-  });
+  }, []);
 
   return (
     <Section
-      title={title && Prismic.RichText.asText(title)}
+      title={page.title && Prismic.RichText.asText(page.title)}
       titleCustomColor="ocean"
-      progress={sponsors.length}
+      /* ??? */
+      progress={!loading}
     >
-      <Grid container spacing={2}>
-        {
-          sponsors && sponsors.map((sponsor) => (
-            <Grid item key={sponsor.id}>
-              <Spot width={236} height={130}>
-                <Link
-                  href={sponsor.website.url}
-                  target={sponsor.website.target}
-                  rel="noopener"
-                  underline="none"
-                >
-                  <Image
-                    presentation
-                    src={sponsor.image.url}
-                    alt={sponsor.image.alt}
-                    {...sponsor.image.dimensions}
-                  />
-                </Link>
-              </Spot>
-            </Grid>
-          ))
-        }
-      </Grid>
+      {
+        page.body.sponsorship && page.body.sponsorship.map(({ quota, sponsors }) => (
+          <Grid container spacing={2}>
+            {
+              sponsors.map((sponsor) => {
+                return (
+                  <Grid item key={sponsor.id}>
+                    <Box mb={1}>
+                      <Spot {...sponsor.image.dimensions}>
+                        <Link
+                          href={sponsor.website.url}
+                          target={sponsor.website.target}
+                          rel="noopener"
+                          underline="none"
+                        >
+                          <Image
+                            presentation
+                            src={sponsor.image.url}
+                            alt={sponsor.image.alt}
+                            {...sponsor.image.dimensions}
+                          />
+                        </Link>
+                      </Spot>
+                    </Box>
+                  </Grid>
+                )
+              })
+            }
+          </Grid>
+        ))
+      }
     </Section>
   );
 };
 
-Sponsors.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  page: PropTypes.object.isRequired,
-  available: PropTypes.bool.isRequired,
-};
+Sponsors.propTypes = {};
 
 export default Sponsors;

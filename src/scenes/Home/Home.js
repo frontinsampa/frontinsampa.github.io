@@ -15,8 +15,8 @@ const Home = () => (
     <About />
     <Timeline />
     <Speakers />
-    <Partners />
     <Sponsors />
+    <Partners />
     <Contact />
   </React.Fragment>
 );
