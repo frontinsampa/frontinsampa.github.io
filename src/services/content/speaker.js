@@ -7,13 +7,13 @@ const getSpeakersByYear = async (year = new Date().getFullYear()) => (
   ])
 );
 
-const getSpeakerById = async id => (
+const getSpeakerById = async (id) => (
   query(({ Predicates }) => [
     Predicates.at('document.id', id),
   ])
 );
 
-const getSpeakersByIds = async id => (
+const getSpeakersByIds = async (id) => (
   query(({ Predicates }) => [
     Predicates.in('document.id', id),
   ])

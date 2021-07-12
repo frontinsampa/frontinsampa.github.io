@@ -16,7 +16,7 @@ const themes = {
 const provideTheme = (name) => {
   const theme = createTheme(mixins, themes[name]);
 
-  return Component => ({ ...props }) => (
+  return (Component) => ({ ...props }) => (
     <MuiThemeProvider theme={theme}>
       <Component {...props} />
     </MuiThemeProvider>

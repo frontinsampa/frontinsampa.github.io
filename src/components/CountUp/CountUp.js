@@ -13,9 +13,9 @@ const CountUp = ({ number, prefix, posfix }) => {
   });
 
   return (
-    <React.Fragment>
+    <>
       {prefix + countUp + posfix}
-    </React.Fragment>
+    </>
   );
 };
 

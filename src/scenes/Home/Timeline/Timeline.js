@@ -35,7 +35,7 @@ const Timeline = ({ dispatch, page }) => {
     >
       {
         page && (
-          <React.Fragment>
+          <>
             <Box mb={6}>
               <Typography component="div" variant="h4">
                 { Prismic.RichText.render(page.content) }
@@ -89,7 +89,7 @@ const Timeline = ({ dispatch, page }) => {
                 )))
               }
             </Grid>
-          </React.Fragment>
+          </>
         )
       }
     </Section>
@@ -101,6 +101,6 @@ Timeline.propTypes = {
   page: PropTypes.object.isRequired,
 };
 
-export default connect(store => ({
+export default connect((store) => ({
   page: store.timeline.page,
 }))(Timeline);

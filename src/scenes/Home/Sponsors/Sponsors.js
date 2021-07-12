@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Prismic from 'prismic-reactjs';
 
-
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import Box from '@material-ui/core/Box';
@@ -41,7 +40,7 @@ async function getSponsorship(data) {
     const sponsors = ids
       .map((id) => {
         const sponsor = sponsorsPages
-          .find(page => page.id === id)
+          .find((page) => page.id === id)
           .data;
 
         const image = filterSponsorImageByQuota(quota, sponsor.image);
@@ -111,7 +110,7 @@ const Sponsors = () => {
         page.body.sponsorship && page.body.sponsorship.map(({ sponsors }) => (
           <Grid container spacing={2}>
             {
-              sponsors.map(sponsor => (
+              sponsors.map((sponsor) => (
                 <Grid item key={sponsor.id}>
                   <Box mb={1}>
                     <Spot {...sponsor.image.dimensions}>

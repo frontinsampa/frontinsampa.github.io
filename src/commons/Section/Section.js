@@ -31,9 +31,9 @@ const Section = ({
           <Grid item xs={collapsed ? 'auto' : 10}>
             {
               title && (
-                <React.Fragment>
+                <>
                   <Typed component="h2" className={classes.sectionTitle} variant="h5" content={[stringToFunctionStyle(title)]} a11y={{ content: title }} />
-                </React.Fragment>
+                </>
               )
             }
 
