@@ -153,8 +153,9 @@ const Timeline = () => {
 
                           <Grid item>
                             <Typography component="small">
-                              {program?.type && (program?.speaker && ` - `)}
-                              {program.speaker}
+                              {program.type}
+                              {program?.speaker && ' - '}
+                              {program?.speaker}
                             </Typography>
                           </Grid>
                         </Grid>
