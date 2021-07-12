@@ -1,7 +1,5 @@
 import uuid from 'uuid/v4';
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import Prismic from 'prismic-reactjs';
 
 import Grid from '@material-ui/core/Grid';
@@ -13,94 +11,172 @@ import Typography from '../../../components/Typography';
 
 import Section from '../../../commons/Section';
 
-import getTimeline from './store/getTimeline';
-
 import transformToScheduleHour from '../../../utils/transformToScheduleHour';
 
-const Timeline = ({ dispatch, page }) => {
-  const [loaded, setLoading] = useState(false);
+import { getTimelineByYear, getSpeakersByIds } from '../../../services/content';
+
+async function getPage() {
+  const [response] = await getTimelineByYear();
+  const {
+    title,
+    body,
+    content,
+  } = response.data;
+
+  const timeline = await getTimelineDetails(body);
+
+  return {
+    title,
+    body: {
+      content,
+      timeline,
+    },
+  };
+}
+
+async function getTimelineDetails(data) {
+  const slices = data
+    .filter(({ slice_type }) => slice_type === 'timeline')
+    .map(({ items }) => (
+      items.map(({ speaker: { id }, ...details }) => ({
+        ...details,
+        speaker: id,
+      }))
+    ));
+
+  const speakersIds = slices
+    .flatMap((items) => (
+      items.map(({ speaker }) => speaker)
+    ))
+    .filter((id) => id);
+  const speakersPages = await getSpeakersByIds(speakersIds);
+
+  const body = slices.map((items) => (
+    items.map(({ speaker: id, ...program }) => {
+      const speaker = speakersPages.find((page) => page.id === id);
+
+      if (speaker) {
+        return {
+          ...program,
+          speaker: speaker?.data.name,
+        };
+      }
+
+      return program;
+    })
+  ));
+
+  return body;
+}
+
+const Timeline = () => {
+  const [page, setPage] = useState({
+    title: null,
+    body: {},
+  });
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (!loaded) {
-      dispatch(getTimeline());
-      setLoading(true);
-    }
-  });
+    (async () => {
+      try {
+        setLoading(true);
 
-  return loaded && (
+        const data = await getPage();
+
+        setPage(data);
+
+        console.log(data);
+      } finally {
+        setLoading(false);
+      }
+    })();
+  }, []);
+
+  return (
     <Section
-      title={Prismic.RichText.asText(page.title)}
+      title={page.title && Prismic.RichText.asText(page.title)}
       titleCustomColor="ocean"
-      progress={page.body.length}
+      /* ??? */
+      progress={!loading}
     >
       {
-        page && (
-          <>
-            <Box mb={6}>
-              <Typography component="div" variant="h4">
-                { Prismic.RichText.render(page.content) }
-              </Typography>
-            </Box>
-
-            <Grid container>
-              {
-                page.body.filter(({ slice_type }) => slice_type === 'timeline').map(({ items }) => items.map(({
-                  heading,
-                  description,
-                  type,
-                  schedule_from,
-                  schedule_to,
-                }) => (
-                  <Grid item xs={12} md={10} lg={8} key={uuid()}>
-                    <Box mb={6}>
-                      <Typography component="span" variant="h4" display="block" paragraph customColor="ocean">
-                        { transformToScheduleHour(schedule_from, schedule_to) }
-                      </Typography>
-
-                      <Typography component="h3" variant="h5" paragraph>
-                        { heading }
-                      </Typography>
-
-                      {
-                        type && (
-                          <Grid container alignItems="flex-start" spacing={1}>
-                            <Grid item>
-                              <ChatBubbleOutline />
-                            </Grid>
-
-                            <Grid item>
-                              <Typography component="small">
-                                { type }
-                              </Typography>
-                            </Grid>
-                          </Grid>
-                        )
-                      }
-
-                      {
-                        description && (
-                          <TypographyCore component="div" variant="h6" paragraph color="textSecondary">
-                            { Prismic.RichText.render(description) }
-                          </TypographyCore>
-                        )
-                      }
-                    </Box>
-                  </Grid>
-                )))
-              }
-            </Grid>
-          </>
+        page.body?.content && (
+          <Box mb={6}>
+            <Typography component="div" variant="h4">
+              {page.body?.content && Prismic.RichText.render(page.body.content)}
+            </Typography>
+          </Box>
         )
+      }
+
+      {
+        page.body?.timeline?.map((timeline) => (
+          <Grid container key={uuid()}>
+            {
+              timeline.map((program) => (
+                <Grid
+                  item
+                  xs={12}
+                  md={10}
+                  lg={8}
+                  key={uuid()}
+                >
+                  <Box mb={6}>
+                    <Typography
+                      component="span"
+                      variant="h4"
+                      display="block"
+                      paragraph
+                      customColor="ocean"
+                    >
+                      {transformToScheduleHour(program.schedule_from, program.schedule_to)}
+                    </Typography>
+
+                    <Typography
+                      component="h3"
+                      variant="h5"
+                      paragraph
+                    >
+                      {program.heading}
+                    </Typography>
+
+                    {
+                      (program.type || program?.speaker) && (
+                        <Grid
+                          container
+                          alignItems="flex-start"
+                          spacing={1}
+                        >
+                          <Grid item>
+                            <ChatBubbleOutline />
+                          </Grid>
+
+                          <Grid item>
+                            <Typography component="small">
+                              {program?.type && (program?.speaker && ` - `)}
+                              {program.speaker}
+                            </Typography>
+                          </Grid>
+                        </Grid>
+                      )
+                    }
+
+                    {
+                      program.description && (
+                        <TypographyCore component="div" variant="h6" paragraph color="textSecondary">
+                          {Prismic.RichText.render(program.description)}
+                        </TypographyCore>
+                      )
+                    }
+                  </Box>
+                </Grid>
+              ))
+            }
+          </Grid>
+        ))
       }
     </Section>
   );
 };
 
-Timeline.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  page: PropTypes.object.isRequired,
-};
-
-export default connect((store) => ({
-  page: store.timeline.page,
-}))(Timeline);
+export default Timeline;
