@@ -7,12 +7,6 @@ module.exports = merge.smart(commons, {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        enforce: 'pre',
-        exclude: /node_modules/,
-        loader: 'eslint-loader',
-      },
-      {
         test: /\.sass$/,
         use: [
           {

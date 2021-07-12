@@ -31,6 +31,7 @@ module.exports = {
     'react/jsx-closing-bracket-location': 0,
     'no-param-reassign': 0,
     'no-shadow': 0,
+    'no-use-before-define': 0,
     camelcase: 0,
   },
   overrides: [
