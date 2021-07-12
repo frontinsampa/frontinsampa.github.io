@@ -33,6 +33,7 @@ module.exports = {
     'no-param-reassign': 0,
     'no-shadow': 0,
     'no-use-before-define': 0,
+    'template-curly-spacing' : 0,
     camelcase: 0,
   },
   overrides: [
