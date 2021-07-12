@@ -120,13 +120,13 @@ const Sponsors = () => {
                         target={sponsor.website.target}
                         rel="noopener"
                         underline="none"
-                        >
+                      >
                         <Image
                           presentation
                           src={sponsor.image.url}
                           alt={sponsor.image.alt}
                           {...sponsor.image.dimensions}
-                          />
+                        />
                       </Link>
                     </Spot>
                   </Box>
