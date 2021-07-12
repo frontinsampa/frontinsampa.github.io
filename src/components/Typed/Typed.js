@@ -23,7 +23,7 @@ const Typed = ({ content, a11y, ...props }) => {
   }, [mounted]);
 
   return (
-    <React.Fragment>
+    <>
       {
         /**
          * Apply only the most important content for screen
@@ -39,7 +39,7 @@ const Typed = ({ content, a11y, ...props }) => {
       <Typography {...props} aria-hidden={!isEmpty(a11y.content)}>
         <span ref={$content} />
       </Typography>
-    </React.Fragment>
+    </>
   );
 };
 

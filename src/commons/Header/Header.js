@@ -57,7 +57,7 @@ const Header = ({ classes }) => (
         <Grid component="nav" item xs="auto">
           <Grid component="ul" className={classes.headerMenu} container spacing={4}>
             {
-              MENU.map(item => (
+              MENU.map((item) => (
                 <Grid component="li" item xs="auto" key={uuid()}>
                   <Typography component="span">
                     <Link href={item.src} aria-label={item.a11y} color="inherit" underline="none">

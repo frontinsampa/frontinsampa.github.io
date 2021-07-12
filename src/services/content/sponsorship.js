@@ -9,13 +9,13 @@ const getSponsorshipByYear = async (year = new Date().getFullYear()) => query(({
   Predicates.at('document.tags', [year.toString()]),
 ]);
 
-const getSponsorById = async id => (
+const getSponsorById = async (id) => (
   query(({ Predicates }) => [
     Predicates.at('document.id', id),
   ])
 );
 
-const getSponsorByIds = async id => (
+const getSponsorByIds = async (id) => (
   query(({ Predicates }) => [
     Predicates.in('document.id', id),
   ])

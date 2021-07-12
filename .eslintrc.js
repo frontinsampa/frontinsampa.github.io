@@ -29,6 +29,7 @@ module.exports = {
     'react/jsx-max-props-per-line': 0,
     'react/forbid-prop-types': 0,
     'react/jsx-closing-bracket-location': 0,
+    'react/jsx-props-no-spreading': 0,
     'no-param-reassign': 0,
     'no-shadow': 0,
     'no-use-before-define': 0,

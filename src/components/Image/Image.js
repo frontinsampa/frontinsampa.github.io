@@ -18,13 +18,13 @@ const Image = ({
       */
     <img src={src} alt="" role="presentation" width={width} height={height} />
   ) : (
-    <React.Fragment>
+    <>
       <img src={src} alt={alt} aria-describedby={id} width={width} height={height} />
 
       <span id={id}>
         { a11y.description }
       </span>
-    </React.Fragment>
+    </>
   );
 };
 

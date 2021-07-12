@@ -1,4 +1,4 @@
-export const body = props => ({
+export const body = (props) => ({
   '@global': {
     body: props,
   },
