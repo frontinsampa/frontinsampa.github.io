@@ -167,13 +167,17 @@ const Timeline = () => {
                           spacing={1}
                         >
                           <Grid item>
-                            <ChatBubbleOutline />
+                            {
+                              program.type && (
+                                <ChatBubbleOutline />
+                              )
+                            }
                           </Grid>
 
                           <Grid item>
                             <Typography component="small">
                               {program.type}
-                              {program?.speakers && ' - '}
+                              {(program.type && program?.speakers.length > 0) && ' - '}
                               {program?.speakers.join(' + ')}
                             </Typography>
                           </Grid>
