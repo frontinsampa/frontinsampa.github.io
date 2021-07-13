@@ -38,27 +38,46 @@ async function getTimelineDetails(data) {
   const slices = data
     .filter(({ slice_type }) => slice_type === 'timeline')
     .map(({ items }) => (
-      items.map(({ speaker: { id }, ...details }) => ({
-        ...details,
-        speaker: id,
-      }))
+      items.map((item) => {
+        const {
+          speaker,
+          co_speaker_1,
+          co_speaker_2,
+          ...details
+        } = item;
+
+        const speakers = [
+          speaker,
+          co_speaker_1,
+          co_speaker_2,
+        ].map(({ id } = {}) => id).filter((id) => id?.length);
+
+        return { ...details, speakers };
+      })
     ));
 
   const speakersIds = slices
     .flatMap((items) => (
-      items.map(({ speaker }) => speaker)
+      items
+        .map(({ speakers }) => speakers)
+        .filter((id) => id?.length)
     ))
-    .filter((id) => id);
+    .flatMap((id) => id);
+
   const speakersPages = await getSpeakersByIds(speakersIds);
 
   const body = slices.map((items) => (
-    items.map(({ speaker: id, ...program }) => {
-      const speaker = speakersPages.find((page) => page.id === id);
+    items.map(({ speakers: ids, ...program }) => {
+      const speakers = speakersPages
+        .map(({ id, data: { name } }) => (
+          ids.includes(id) && name
+        ))
+        .filter((name) => name?.length);
 
-      if (speaker) {
+      if (speakers) {
         return {
           ...program,
-          speaker: speaker?.data.name,
+          speakers,
         };
       }
 
@@ -141,7 +160,7 @@ const Timeline = () => {
                     </Typography>
 
                     {
-                      (program.type || program?.speaker) && (
+                      (program.type || program?.speakers) && (
                         <Grid
                           container
                           alignItems="flex-start"
@@ -154,8 +173,8 @@ const Timeline = () => {
                           <Grid item>
                             <Typography component="small">
                               {program.type}
-                              {program?.speaker && ' - '}
-                              {program?.speaker}
+                              {program?.speakers && ' - '}
+                              {program?.speakers.join(' + ')}
                             </Typography>
                           </Grid>
                         </Grid>
