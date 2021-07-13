@@ -103,8 +103,6 @@ const Timeline = () => {
         const data = await getPage();
 
         setPage(data);
-
-        console.log(data);
       } finally {
         setLoading(false);
       }
