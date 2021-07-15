@@ -3,7 +3,7 @@
 const adjustGMT = (hours) => {
   const localTime = hours - 3;
   const withZero = localTime.toString().length === 1 ? `0${localTime}` : localTime;
-  return withZero;
+  return withZero === '00' ? '12' : withZero;
 };
 
 const dateToTime = (date) => {
