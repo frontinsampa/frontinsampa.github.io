@@ -1,44 +1,89 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <title>FRONTIN - Eventos e Conteúdo de Tecnologia</title>
 
-    <meta http-equiv="refresh" content="0;URL='https://conteudo.frontinsampa.com.br/2022'" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<head>
+  <title>FRONTIN - Eventos e Conteúdo de Tecnologia</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      color: white;
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
 
-    <meta name="description" content="Somos uma comunidade sobre tecnologia e programação, que alcança atualmente cerca de 350 mil contas por mês nas redes sociais. O crescimento neste alcance fez surgir a FRONTIN, uma organização especializada em gerir conteúdo, criadoras e a produção de eventos tech." />
-    <meta name="keywords" content="desenvolvedora frontend, desenvolvedor front-end, desenvolvedora frontend, desenvolvedor front-end, front-end em são paulo, eventos de front-end em são paulo, frontinsampa, frontinsampa 2022, eventos de desenvolvimento, desenvolvimento, front-end, html, css, javascript, js, frontin, frontin senior, frontinsenior, eventos tech, comunidade tech, criadoras de conteúdo tech, influenciadores tech" />
+    div {
+      height: 90vh;
+      position: relative
+    }
 
-    <meta property="og:locale" content="pt_BR" />
-    <meta property="og:url" content="http://www.frontinsampa.com.br" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="FRONTIN - Eventos e Conteúdo de Tecnologia" />
-    <meta property="og:site_name" content="FRONTIN SAMPA">
-    <meta property="og:description" content="Somos uma comunidade sobre tecnologia e programação, que alcança atualmente cerca de 350 mil contas por mês nas redes sociais. O crescimento neste alcance fez surgir a FRONTIN, uma organização especializada em gerir conteúdo, criadoras e a produção de eventos tech." />
-    <meta property="og:image" content="https://d335luupugsy2.cloudfront.net/cms/files/389601/1642270638/$nxm30jc866" />
+    p {
+      color: #000;
+      animation-duration: 3s;
+      animation-name: slidein;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -25%)
+    }
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="FRONTIN - Eventos e Conteúdo de Tecnologia" />
-    <meta name="twitter:description" content="Somos uma comunidade sobre tecnologia e programação, que alcança atualmente cerca de 350 mil contas por mês nas redes sociais. O crescimento neste alcance fez surgir a FRONTIN, uma organização especializada em gerir conteúdo, criadoras e a produção de eventos tech." />
-    <meta name="twitter:site" content="@frontinsp" />
-    <meta name="twitter:image" content="https://d335luupugsy2.cloudfront.net/cms/files/389601/1642270638/$nxm30jc866" />
+    @keyframes slidein {
+      from {
+        margin-left: 100%;
+        width: 300%;
+      }
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=<%= GOOGLE_UA %>"></script>
+      to {
+        margin-left: 0%;
+        width: 100%;
+      }
+    }
+  </style>
 
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '<%= GOOGLE_UA %>');
-    </script>
+  <meta http-equiv="refresh" content="3;URL='https://conteudo.frontinsampa.com.br/2022'" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-    <link href="favicon.ico" rel="shortcut icon" />
-  </head>
+  <meta name="description"
+    content="Com um alcance médio mensal de 350 mil nas redes sociais, nossos conteúdos estão disponíveis gratuitamente para qualquer pessoa. São mais de 10 anos de palestras no YouTube sobre tecnologia, 20 embaixadoras entre as maiores criadoras de conteúdo tech do Brasil, 20 anos de artigos no blog Tableless (agora parte da nossa comunidade) e novas iniciativas como o FRONTIN Cast nas plataformas de streaming." />
+  <meta name="keywords"
+    content="desenvolvedora frontend, desenvolvedor front-end, desenvolvedora frontend, desenvolvedor front-end, front-end em são paulo, eventos de front-end em são paulo, frontinsampa, frontinsampa, eventos de desenvolvimento, desenvolvimento, front-end, html, css, javascript, js, frontin, frontin senior, frontinsenior, eventos tech, comunidade tech, criadoras de conteúdo tech, influenciadores tech, frontin, frontin elas programam, elas programam, twilio, turing" />
 
-  <body>
-    <div id="root">
-      Carregando...
-    </div>
-    <script type="text/javascript" async src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/4bb9c6df-62b2-4fc2-a22f-c2b69053abb5-loader.js" ></script>
-  </body>
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:url" content="http://www.frontinsampa.com.br" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="FRONTIN - Eventos e Conteúdo de Tecnologia" />
+  <meta property="og:site_name" content="FRONTIN">
+  <meta property="og:description"
+    content="Com um alcance médio mensal de 350 mil nas redes sociais, nossos conteúdos estão disponíveis gratuitamente para qualquer pessoa. São mais de 10 anos de palestras no YouTube sobre tecnologia, 20 embaixadoras entre as maiores criadoras de conteúdo tech do Brasil, 20 anos de artigos no blog Tableless (agora parte da nossa comunidade) e novas iniciativas como o FRONTIN Cast nas plataformas de streaming." />
+  <meta property="og:image" content="https://i.imgur.com/XeWmhNh.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FRONTIN - Eventos e Conteúdo de Tecnologia" />
+  <meta name="twitter:description"
+    content="Com um alcance médio mensal de 350 mil nas redes sociais, nossos conteúdos estão disponíveis gratuitamente para qualquer pessoa. São mais de 10 anos de palestras no YouTube sobre tecnologia, 20 embaixadoras entre as maiores criadoras de conteúdo tech do Brasil, 20 anos de artigos no blog Tableless (agora parte da nossa comunidade) e novas iniciativas como o FRONTIN Cast nas plataformas de streaming." />
+  <meta name="twitter:site" content="@frontinsp" />
+  <meta name="twitter:image" content="https://i.imgur.com/XeWmhNh.png" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= GOOGLE_UA %>"></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', '<%= GOOGLE_UA %>');
+  </script>
+
+  <link href="favicon.ico" rel="shortcut icon" />
+</head>
+
+<body>
+  <div>
+    <p>
+      FRONTIN - Eventos e produção de conteúdo para programação: Impacto e transformação através da educação e
+      tecnologia
+    </p>
+  </div>
+  <!-- <div id="root"></div> -->
+  <!-- <script type="text/javascript" async
+    src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/4bb9c6df-62b2-4fc2-a22f-c2b69053abb5-loader.js"></script> -->
+</body>
