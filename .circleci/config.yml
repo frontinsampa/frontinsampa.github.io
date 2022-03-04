@@ -25,7 +25,7 @@ anchors:
     working_directory: ~/project
 
     docker:
-      - image: circleci/node:10.18.0
+      - image: circleci/node:16.14.0
 
     environment: *environment
 
